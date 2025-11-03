@@ -1,4 +1,4 @@
-//TanWeiFeng 
+//TanWeiFengStart
 package fopassignment.journaling01;
 import java.util.Scanner;
 public class StartUpPage {
@@ -41,7 +41,6 @@ public class StartUpPage {
         return LR;
         
     }
-}
-
-
-
+} 
+//TanWeiFengEnd
+//completed prompt user choose login or register and return to main *3/11/2025
