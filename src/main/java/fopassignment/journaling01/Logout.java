@@ -1,0 +1,29 @@
+//TanWeiFengStart
+package fopassignment.journaling01;
+import java.util.Scanner;
+public class Logout {
+    public static boolean logout(){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Do you wish to logout?");
+        System.out.println("\n1.Logout \t\t\t 2.Stay");
+        System.out.println("\nPress 1 to logout and press 2 to stay.");
+        int LO = sc.nextInt();
+            secondloop:
+                while (true)
+                    if (LO == 1){
+                        System.out.println("Logged out");
+                        return false;
+                    }
+                    else if (LO == 2){
+                        System.out.println("Transmitting to main page");
+                        return true;
+                    }
+                    else {
+                        System.out.println("Invalid input.");
+                        System.out.println("\nPress 1 to logout and press 2 to stay.");
+                        LO = sc.nextInt();
+                    }
+    }
+}
+//TanWeiFengEnd
+//completed to prompt user choose logout or stay and return to main *3/11/2025

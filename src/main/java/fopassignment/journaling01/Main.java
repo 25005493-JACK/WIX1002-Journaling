@@ -1,27 +1,35 @@
-//TanWeiFeng
+//TanWeiFengStart
 package fopassignment.journaling01;
-import java.util.Scanner;
 public class Main{
     public static void main(String[]args){
+
         StartUpPage SUP = new StartUpPage();
         WelcomingPage WP = new WelcomingPage();
-        int LR = SUP.Intro();
-        //System.out.println(LR); //to check LR 
+        JournalPage JP = new JournalPage();
+        Logout lo = new Logout();
         
-        boolean logout = false; //loop till logout
-        outerloop:
-        while (logout == false){
+        int LR = SUP.Intro();
+        //System.out.println(LR); //to check LR can be returned or not
+        
+        boolean loginstatus = false; 
+        
+        while (loginstatus == false){
             if (LR == 1){
-                WP.Login();
-                break outerloop;
+                WP.Login();//boolean here, fix later after csv.
+                loginstatus = true;
+                break;
             }
             else if (LR == 2){
                 WP.Register();
-                break outerloop;
+                loginstatus = false;
             }
-            System.out.println("Do you wish to logout?");
-            System.out.println("\n1.Logout \t\t\t 2.Stay");
-        }  
+        }
         
+        while (loginstatus == true){
+        JP.Journal();
+        loginstatus =  lo.logout();
+        //System.out.println(loginstatus); //to check loginstatus can be returned or not
+        }
     }
 }
+//TanWeiFengEnd
