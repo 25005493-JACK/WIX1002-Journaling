@@ -20,7 +20,7 @@ public class Main{
                 break outerloop;
             }
             System.out.println("Do you wish to logout?");
-            System.out.println("");
+            System.out.println("\n1.Logout \t\t\t 2.Stay");
         }  
         
     }
