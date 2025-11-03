@@ -24,7 +24,7 @@ public class WelcomingPage {
         System.out.println("Set your password:");
         
         System.out.println("Confirm your password:");
-        
+        System.out.println("");
         //not done yet
         
     }
