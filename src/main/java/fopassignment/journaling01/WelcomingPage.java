@@ -7,7 +7,7 @@ public class WelcomingPage {
     public static void Login(){
         System.out.println("Welcome back!");
         System.out.println("Enter user email:");
-        
+        //test
         System.out.println("Enter password");
         
         System.out.println("");//display name
