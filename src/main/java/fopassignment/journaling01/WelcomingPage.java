@@ -25,5 +25,7 @@ public class WelcomingPage {
         
         System.out.println("Confirm your password:");
         
+        
+        System.out.println("testing");
     }
 }
