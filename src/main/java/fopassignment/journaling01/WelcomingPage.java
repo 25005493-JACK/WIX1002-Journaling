@@ -12,7 +12,7 @@ public class WelcomingPage {
         
         System.out.println("");//display name
         
-        //not done yet!
+        //not done yet
     }
     
     public static void Register(){
@@ -24,6 +24,9 @@ public class WelcomingPage {
         System.out.println("Set your password:");
         
         System.out.println("Confirm your password:");
+        System.out.println("abc");
+        
+        //not done yet
         
     }
 }
