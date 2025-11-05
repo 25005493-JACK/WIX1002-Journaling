@@ -37,7 +37,7 @@ public class JournalPage {
         int UserC = s.nextInt();
         while(true)
         {
-            if(UserC >= 1 && UserC <= day)
+            if(UserC >= 1 && UserC < day)
             {
                 break;
             }
