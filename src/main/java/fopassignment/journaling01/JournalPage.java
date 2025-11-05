@@ -8,7 +8,6 @@ public class JournalPage {
         LocalTime myTime = LocalTime.now();
         System.out.println("Today is " + myDate);
         System.out.println("The time now is " + myTime);
-    
-        System.out.println("testing");
+            
     }
 }
