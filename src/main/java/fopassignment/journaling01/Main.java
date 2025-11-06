@@ -26,11 +26,11 @@ public class Main{
         }//java while loop
         
         
-//        do{
-//            JP.Journal();
-//            loginstatus =  lo.logout();
-//            //System.out.println(loginstatus); //to check loginstatus can be returned or not
-//        }while (loginstatus == true);//java do-while loop
+        do{
+            JP.Journal();
+            loginstatus =  lo.logout();
+            //System.out.println(loginstatus); //to check loginstatus can be returned or not
+        }while (loginstatus == true);//java do-while loop
         
     }
 }
