@@ -15,21 +15,23 @@ public class Main{
         
         while (loginstatus == false){
             if (LR == 1){
-                WP.Login();//boolean here, fix later after csv.
-                loginstatus = true;
-                break;
+                loginstatus = WP.Login();
+                //break;
             }
             else if (LR == 2){
                 WP.Register();
                 loginstatus = false;
-            }
-        }
+                LR = 1;   
+            }//java if-else
+        }//java while loop
         
-        while (loginstatus == true){
-        JP.Journal();
-        loginstatus =  lo.logout();
-        //System.out.println(loginstatus); //to check loginstatus can be returned or not
-        }
+        
+        do{
+            JP.Journal();
+            loginstatus =  lo.logout();
+            //System.out.println(loginstatus); //to check loginstatus can be returned or not
+        }while (loginstatus == true);//java do-while loop
+        
     }
 }
 //TanWeiFengEnd
