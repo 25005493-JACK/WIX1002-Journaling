@@ -1,27 +1,95 @@
 //TanWeiFengStart
 package fopassignment.journaling01;
-//import java.util.Scanner;
-//import java.util.concurrent.atomic.AtomicInteger;
-public class WelcomingPage {
-    public static void Login(){ //boolean return,read input and compare with csv, all correct return boolean
-        
-        System.out.println("Welcome back! \nPlease enter the details to login.");
+import java.util.Scanner;
+
+import java.util.List;
+import java.util.ArrayList;
+
+import java.io.FileWriter;
+import java.io.PrintWriter;
+import java.io.IOException;
+
+
+
+
+public class WelcomingPage extends User {
+    public static boolean Login(){ 
+        Scanner sc = new Scanner(System.in);
+        User user = new User();
+        List <String[]> csvdata = user.fileReader();
+        String csvemail, csvname, csvpw;           
+            
+        System.out.println("\nWelcome back! \nPlease enter the details to login.");
         System.out.println("Enter user email:");
-        System.out.println("Enter password");
-        System.out.println("");//display name
+        email = sc.next();
         
+        System.out.println("Enter password:");
+        pw = sc.next();
+        
+        
+        //outerloop:
+        while (true){
+            for (String[] record : csvdata){
+                csvemail = record[0];
+                //csvname = record[1];
+                //csvpw = record[2];//for now only 3 storage value
+                
+                if (email.equals(csvemail) /*&& pw.equals(csvpw)*/){
+                    System.out.println("Hello "+ csvemail/*csvname*/);//display name
+                    return true;
+                    //break outerloop;
+                }                 
+            }
+            System.out.println("No data found, Please Register.");
+            WelcomingPage WP = new WelcomingPage();
+            WP.Register(); 
+            return false;
+            //wrong pw, wrong username etc
+            
+        }           
         //not done yet
     }
     
-    public static void Register(){ //no return, save everything to csv
-        System.out.println("Welcome to XXX Journaling!");
-        System.out.println("Enter your name:");
-        System.out.println("Enter your email address:");
-        System.out.println("Set your password:");
-        System.out.println("Confirm your password:");
-        System.out.println("abc");
+    public static void Register() { //no return, save everything to csv
+        Scanner sc = new Scanner(System.in);
+        WelcomingPage WP = new WelcomingPage();
         
-        //not done yet
+        System.out.println("\nWelcome to XXX Journaling!");
+        System.out.println("Enter your name:");
+        name = sc.next();
+        
+        System.out.println("Enter your email address:");
+        email = sc.next();
+        
+        System.out.println("Set your password:");
+        String pw1 = sc.next();
+        System.out.println("Confirm your password:");
+        String pw2 = sc.next();
+        
+                
+        if (pw1.equals(pw2)){
+            pw = pw1;          
+            String csvFOP = System.getProperty("user.dir")+"\\data\\UserData.txt";
+//            User genID = new User();
+//            userID = genID.updateID();
+            
+            try(
+                FileWriter writer = new FileWriter(csvFOP, true);
+                PrintWriter pwriter = new PrintWriter(writer);
+            ){
+                pwriter.println(/*userID + "\n" +*/ email + "\n" + name + "\n" + pw + "\n");//userID haven't figure out how to generate unique one
+            }
+            catch (IOException e){
+                System.out.println("Error in register.");
+                e.printStackTrace();
+            }
+            //save all variable to csv here
+        }
+        else {
+            System.out.println("\nYour password and confirm password does not match. Please try again.\n");
+            WP.Register(); //Java Recursion
+        }
+        
         
     }
 }

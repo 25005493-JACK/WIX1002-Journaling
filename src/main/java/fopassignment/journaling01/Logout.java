@@ -11,11 +11,11 @@ public class Logout {
             secondloop:
                 while (true)
                     if (LO == 1){
-                        System.out.println("Logged out");
+                        System.out.println("\nLogged out. Thanks for using XXX Journaling. Have a nice day!");
                         return false;
                     }
                     else if (LO == 2){
-                        System.out.println("Transmitting to main page");
+                        System.out.println("\nTransmitting to journal page...\tLoading...\n");
                         return true;
                     }
                     else {
