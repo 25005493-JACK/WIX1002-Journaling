@@ -1,5 +1,6 @@
 //TanWeiFengStart
 package fopassignment.journaling01;
+
 public class Main{
     public static void main(String[]args){
 
@@ -16,7 +17,6 @@ public class Main{
         while (loginstatus == false){
             if (LR == 1){
                 loginstatus = WP.Login();
-                //break;
             }
             else if (LR == 2){
                 WP.Register();
