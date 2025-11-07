@@ -1,6 +1,7 @@
-//TanWeiFeng 
+//TanWeiFengStart
 package fopassignment.journaling01;
 import java.util.Scanner;
+
 public class StartUpPage {
     public static int Intro(){
         Scanner sc = new Scanner(System.in);
@@ -23,25 +24,24 @@ public class StartUpPage {
         while (true){
             switch(LR){
                 case 1:{
-                    System.out.println("\nLoading...\tLogin Page...");
+                    System.out.println("\nLoading...\tLogin Page...\n");
                     break outerloop;
                 }
                 case 2:{
-                    System.out.println("\nLoading...\tRegister Page");
+                    System.out.println("\nLoading...\tRegister Page\n");
                     break outerloop;
                 }
                 default: {
-                    System.out.println("Press 1 to login and press 2 to register as new user.");
+                    System.out.println("\nPress 1 to login and press 2 to register as new user.");
                     LR = sc.nextInt();
                 }
-            }
+            }//java switch
         }       
         
         
         return LR;
         
     }
-}
-
-
-
+} 
+//TanWeiFengEnd
+//completed prompt user choose login or register and return to main *3/11/2025
