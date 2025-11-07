@@ -1,6 +1,7 @@
 //TanWeiFengStart
 package fopassignment.journaling01;
 import java.util.Scanner;
+
 public class StartUpPage {
     public static int Intro(){
         Scanner sc = new Scanner(System.in);

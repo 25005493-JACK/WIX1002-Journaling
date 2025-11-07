@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
+
 public class JournalPage {
     public static void Journal(){
         LocalDate jourDate = LocalDate.now();
