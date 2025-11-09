@@ -1,0 +1,2 @@
+Download link: https://dev.mysql.com/downloads/mysql/8.4.html
+Download option: x86, 64 bit, MSI Installer 

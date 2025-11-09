@@ -11,13 +11,13 @@ import java.util.ArrayList;
 public class User {
     static int userID;
     static String email, pw, name;
-    static String csvemail, csvpw, csvname;
+    static String txtemail, txtpw, txtname;
     static String temail, tpw, tname;
     
-    public static List <String[]> fileReader(){
-        String csvFOP =System.getProperty("user.dir")+"\\data\\UserData.txt";
+    public static List <String[]> txtfileReader(){
+        String txtFOP =System.getProperty("user.dir")+"\\data\\UserData.txt";
         try(
-                FileWriter writer = new FileWriter(csvFOP, true);
+                FileWriter writer = new FileWriter(txtFOP, true);
                 //if first user don't have txt file,this will create first if first user didn't go to register first
             ){}
         catch (IOException e){
@@ -28,15 +28,15 @@ public class User {
         List <String[]> userdata = new ArrayList<>();
                 
         try(
-            FileReader reader = new FileReader(csvFOP);
+            FileReader reader = new FileReader(txtFOP);
             BufferedReader bReader = new BufferedReader(reader);   
         ){
-            while((csvemail = bReader.readLine()) !=null){
-                if (csvemail.trim().isEmpty())
+            while((txtemail = bReader.readLine()) !=null){
+                if (txtemail.trim().isEmpty())
                     continue;
-                csvname = bReader.readLine();
-                csvpw = bReader.readLine();
-                userdata.add(new String[]{csvemail, csvname, csvpw});
+                txtname = bReader.readLine();
+                txtpw = bReader.readLine();
+                userdata.add(new String[]{txtemail, txtname, txtpw});
             }
         }
         catch(IOException e){

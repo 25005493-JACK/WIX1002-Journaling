@@ -1,29 +1,11 @@
-//TanWeiFengStart
+//ChengYingChenStart
 package fopassignment.journaling01;
 import java.time.LocalDate;
-import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public class JournalPage {
     public static void Journal(){
         LocalDate jourDate = LocalDate.now();
-        LocalTime Time = LocalTime.now();
-        DateTimeFormatter formatter24Hour = DateTimeFormatter.ofPattern("HH:mm:ss");
-        String jourTime = Time.format(formatter24Hour);
-        int hour = Time.getHour();
-                
-        if (hour>=00 && hour<12)
-            System.out.println("Good Morning!");
-        else if (hour>=12 && hour<17)
-            System.out.println("Good Afternoon!");
-        else 
-            System.out.println("Good Evening");
-        
-        System.out.println("Today is " + jourDate);
-        System.out.println("The time now is " + jourTime);
-//TanWeiFengEnd
-//ChengYingChenStart
         LocalDate regisDate = LocalDate.of(2025, 11, 1); //will set it later to real registration date according to each user 
         LocalDate rD = regisDate;
         int day = 1;
@@ -37,6 +19,7 @@ public class JournalPage {
         
         Scanner s = new Scanner(System.in);
         System.out.println("Select date to view journal or create a journal for today.");
+        System.out.print("> ");
         int UserC = s.nextInt();
         
         

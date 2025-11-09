@@ -1,24 +1,16 @@
 s100201@student.fop
 Foo Bar
 pw-Stud#1
- 
+
 s100202@student.fop
 John Doe
 pw-Stud#2
- 
-tan@student.fop
-Tan
-T
 
-mx@student.fop
-Mei Xin
-1234
+jack@student.fop
+Jack
+JACK
  
-jame@student.fop
-Jame
-Jamesss
- 
-mandy@student.fop
-Mandy
-Man
+shin@student.fop
+Shin
+SHIN
  
