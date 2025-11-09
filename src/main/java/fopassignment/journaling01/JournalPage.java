@@ -19,23 +19,45 @@ public class JournalPage {
         
         Scanner s = new Scanner(System.in);
         System.out.println("Select date to view journal or create a journal for today.");
+
         System.out.print("> ");
-        int UserC = s.nextInt();
+        int userC = s.nextInt();
+
         
         
         while(true)
         {
-            if(UserC >= 1 && UserC < day)
+            if(userC >= 1 && userC < day)
             {
                 break;
             }
             else
             {
                 System.out.println("Invalid date. Please choose again.");
-                UserC = s.nextInt();
+                userC = s.nextInt();
             }
         }
+        
+        JournalPageFH j = new JournalPageFH();
+        LocalDate userCDate = regisDate.plusDays(userC - 1);
 
+        if(j.JCExist(userCDate))
+        {
+            System.out.println("Journal exists");
+        
+        } 
+        else 
+        {
+            System.out.println("No journal yet.");
+            s.nextLine();
+            System.out.println("Enter your journal:");
+            String jCon = s.nextLine();
+            j.createJ(userCDate, jCon );
+            System.out.println("Journal created and saved successfully!");
+            
+        
+        }
+       
 //ChengYingChenEnd
     
     }
