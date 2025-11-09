@@ -19,9 +19,9 @@ public class JournalPage {
         
         Scanner s = new Scanner(System.in);
         System.out.println("Select date to view journal or create a journal for today.");
-
         System.out.print("> ");
         int userC = s.nextInt();
+
 
         
         
