@@ -1,2 +1,15 @@
 Download link: https://dev.mysql.com/downloads/mysql/8.4.html
 Download option: x86, 64 bit, MSI Installer 
+
+Download link: https://dev.mysql.com/downloads/workbench/
+Download option: x86, 64 bit, MSI Installer 
+
+For SQL 8.4, install complete version.
+For workbench, install only.
+INSTALL EVERYTHING IN SAME DRIVE WITH JOURNALING FILE
+
+create schemas name journal_app_db in workbench
+
+after done pull all files from GitHub
+mvn flyway:migrate
+run this command in project directory terminal.
