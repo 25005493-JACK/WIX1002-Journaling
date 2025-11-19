@@ -1,2 +1,5 @@
 /target/
-flyway.config
+# Ignore Flyway config with credentials
+flyway.conf
+# Ignore db properties with credentials
+db.properties
