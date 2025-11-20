@@ -44,12 +44,12 @@ public class JournalPage {
         if(j.JCExist(userCDate))
         {
             System.out.println("Journal exists");
-            String journalText = j.readJ(userCDate);
+            /*String journalText = j.readJ(userCDate);
             System.out.println("=== Journal Entry for " + userCDate + " ===");
             System.out.println(journalText);
             System.out.println("\nPress Enter to go back.");
-            s.nextLine(); // consume leftover newline
-            s.nextLine(); // wait for Enter
+            s.nextLine(); 
+            s.nextLine(); */
         
         } 
         else 
