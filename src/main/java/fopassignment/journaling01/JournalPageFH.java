@@ -40,7 +40,7 @@ public class JournalPageFH {
         File file = new File(J_FOLDER + date + ".txt");
 
         if (!file.exists()) {
-            return null; // no journal found
+            return null; 
         }
 
         StringBuilder content = new StringBuilder();
@@ -56,7 +56,7 @@ public class JournalPageFH {
             return null;
         }
 
-        return content.toString().trim(); // return journal content
+        return content.toString().trim(); 
     }
 
     
