@@ -1,3 +1,4 @@
+//TanWeiFengStart
 package fopassignment.journaling01;
 import java.io.InputStream;
 import java.sql.Connection;
@@ -22,3 +23,5 @@ public class DBConnection {
         return DriverManager.getConnection(url, user, password);
     }
 }
+//TanWeiFengEnd
+//Done created class method to read url user and password from local device. *20/11/2025

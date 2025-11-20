@@ -25,7 +25,7 @@ public class WelcomingPage extends User {
         System.out.println("Enter password:");
         pw = sc.next();
         
-        for (String[]userdata: txtdata){//for each loop 
+        for (String[]userdata: txtdata){//for each loop //figure out use database and txt together!!!!
             temail = userdata[0];
             tname = userdata[1];
             tpw = userdata[2];

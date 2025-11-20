@@ -1,4 +1,4 @@
-//ChengYingChen Start
+//ChengYingChenStart
 package fopassignment.journaling01;
 
 
@@ -64,5 +64,4 @@ public class JournalPageFH extends User{
     
 }
 
-//ChengYingChen End
-
+//ChengYingChenEnd
