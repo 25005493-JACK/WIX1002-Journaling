@@ -34,3 +34,11 @@ danial@student.fop
 Danial
 DANIAL
  
+jackie@student.fop
+Jackie
+JACKIE
+ 
+dennis@student.fop
+Dennis
+DENNIS
+ 

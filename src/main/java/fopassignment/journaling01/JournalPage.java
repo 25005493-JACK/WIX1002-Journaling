@@ -56,12 +56,7 @@ public class JournalPage extends User{
             j.createJ(userCDate, jCon );
             System.out.println("Journal created and saved successfully!"); 
         }
-       
-//ChengYingChenEnd
-    
     }
-
-
-    
+  
 }
-
+//ChengYingChenEnd
