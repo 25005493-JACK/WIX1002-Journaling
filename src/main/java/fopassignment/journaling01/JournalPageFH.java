@@ -32,5 +32,34 @@ public class JournalPageFH {
         {
             exc.printStackTrace();
         }
+    }
+    
+    public String readJ(LocalDate date)
+    {
+        
+        File file = new File(J_FOLDER + date + ".txt");
+
+        if (!file.exists()) {
+            return null; // no journal found
+        }
+
+        StringBuilder content = new StringBuilder();
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                content.append(line).append("\n");
+            }
+        } 
+        catch (IOException exc) {
+            exc.printStackTrace();
+            return null;
+        }
+
+        return content.toString().trim(); // return journal content
+    }
+
+    
 }
-}
+
+    
