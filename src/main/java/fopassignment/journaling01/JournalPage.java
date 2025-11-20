@@ -89,8 +89,6 @@ public class JournalPage extends User{
        
         }while(true);
         
-        }
     }
-  
 }
 //ChengYingChenEnd
