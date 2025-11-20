@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.sql.Connection;
 
 public class WelcomingPage extends User {
     public static boolean Login(){ //compare user input with data in csv/txt file
@@ -24,7 +25,7 @@ public class WelcomingPage extends User {
         System.out.println("Enter password:");
         pw = sc.next();
         
-        for (String[]userdata: txtdata){
+        for (String[]userdata: txtdata){//for each loop 
             temail = userdata[0];
             tname = userdata[1];
             tpw = userdata[2];
@@ -92,6 +93,17 @@ public class WelcomingPage extends User {
                 e.printStackTrace();
             }
             //save all variable to txt here
+            
+            try (Connection conn = DBConnection.getConnection()) {
+            System.out.println("Database connected successfully!");
+
+            UserDAO dao = new UserDAO();
+            boolean success = dao.saveUser(userId, name, email, pw);
+            System.out.println(success ? "User saved!" : "Failed to save user.");
+            } 
+            catch (Exception e) {
+                e.printStackTrace();
+            }
         }
         else {
             System.out.println("\nYour password and confirm password does not match. Please try again.");

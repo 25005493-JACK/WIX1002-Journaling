@@ -1,10 +1,11 @@
+//ChengYingChen Start
 package fopassignment.journaling01;
 
 
 import java.io.*;
 import java.time.LocalDate;
 
-public class JournalPageFH {   
+public class JournalPageFH extends User{   
 
     private static final String J_FOLDER = "JournalContent/";
     
@@ -32,5 +33,7 @@ public class JournalPageFH {
         {
             exc.printStackTrace();
         }
+    }
 }
-}
+
+//ChengYingChen End
