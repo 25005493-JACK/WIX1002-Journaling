@@ -59,6 +59,8 @@ public class JournalPageFH extends User{
 
         return content.toString().trim(); 
     }
+     
+    
     
 }
 
