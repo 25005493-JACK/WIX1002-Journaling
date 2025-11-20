@@ -1,3 +1,4 @@
+.env
 /target/
 # Ignore Flyway config with credentials
 flyway.conf
