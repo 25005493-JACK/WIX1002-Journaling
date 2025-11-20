@@ -35,8 +35,7 @@ public class JournalPageFH extends User{
         }
     }
 
-    
-    public String readJ(LocalDate date)
+     public String readJ(LocalDate date)
     {
         
         File file = new File(J_FOLDER + date + ".txt");

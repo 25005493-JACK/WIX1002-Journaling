@@ -51,7 +51,7 @@ public class JournalPage extends User{
             System.out.println("\nPress Enter to go back.");
             s.nextLine(); 
             s.nextLine(); 
-        
+       
         } 
         else 
         {
