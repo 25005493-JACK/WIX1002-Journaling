@@ -1,2 +1,25 @@
 Download link: https://dev.mysql.com/downloads/mysql/8.4.html
 Download option: x86, 64 bit, MSI Installer 
+
+Download link: https://dev.mysql.com/downloads/workbench/
+Download option: x86, 64 bit, MSI Installer 
+
+For SQL 8.4, install complete version.
+For workbench, install only.
+INSTALL EVERYTHING IN SAME DRIVE WITH JOURNALING FILE
+
+create schemas name journal_app_db in workbench
+
+after done pull all files from GitHub
+create own flyway.conf file in netbeans (files>rightclick journaling01>new>others>others>empty file>flyway.conf)
+create own db.properties file in netbeans (files>rightclick journaling01\src\main\resources>new>others>others>properties file>db)
+add flyway.conf and db.properties to .gitignore
+
+in workbench:
+CREATE DATABASE journal_app_db
+    CHARACTER SET utf8mb4
+    COLLATE utf8mb4_unicode_ci;
+copy and run V1__Initial_Schema
+
+run mvn goals  flyway:migrate  in netbeans
+run this command in project directory terminal

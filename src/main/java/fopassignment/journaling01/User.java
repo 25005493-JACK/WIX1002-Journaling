@@ -9,10 +9,11 @@ import java.util.List;
 import java.util.ArrayList;
 
 public class User {
-    static int userID;
+    static int userId=000001;//change later
     static String email, pw, name;
     static String txtemail, txtpw, txtname;
     static String temail, tpw, tname;
+    static String content, date, weather=null, mood=null; 
     
     public static List <String[]> txtfileReader(){
         String txtFOP =System.getProperty("user.dir")+"\\data\\UserData.txt";
@@ -43,8 +44,7 @@ public class User {
             System.out.println("Error in file reader.");
             e.printStackTrace();
         }
-        return userdata;
-                
+        return userdata;        
     }
 }
 //TanWeiFengEnd

@@ -2,12 +2,16 @@
 package fopassignment.journaling01;
 import java.time.LocalDate;
 import java.util.Scanner;
+import java.time.format.DateTimeFormatter;
 
-public class JournalPage {
+public class JournalPage extends User{
     public static void Journal(){
         LocalDate jourDate = LocalDate.now();
         LocalDate regisDate = LocalDate.of(2025, 11, 1); //will set it later to real registration date according to each user 
         LocalDate rD = regisDate;
+        DateTimeFormatter DTF = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        date = regisDate.format(DTF);
+                
         int day = 1;
         System.out.println("*******Journal Dates*******");
         while(rD.isBefore(jourDate.plusDays(1)))
@@ -18,13 +22,10 @@ public class JournalPage {
         }
         
         Scanner s = new Scanner(System.in);
-        System.out.println("Select date to view journal or create a journal for today.");
+        System.out.println("Select date to view journal or create a journal.");
         System.out.print("> ");
         int userC = s.nextInt();
 
-
-        
-        
         while(true)
         {
             if(userC >= 1 && userC < day)
@@ -44,12 +45,6 @@ public class JournalPage {
         if(j.JCExist(userCDate))
         {
             System.out.println("Journal exists");
-            /*String journalText = j.readJ(userCDate);
-            System.out.println("=== Journal Entry for " + userCDate + " ===");
-            System.out.println(journalText);
-            System.out.println("\nPress Enter to go back.");
-            s.nextLine(); 
-            s.nextLine(); */
         
         } 
         else 
@@ -59,9 +54,7 @@ public class JournalPage {
             System.out.println("Enter your journal:");
             String jCon = s.nextLine();
             j.createJ(userCDate, jCon );
-            System.out.println("Journal created and saved successfully!");
-            
-        
+            System.out.println("Journal created and saved successfully!"); 
         }
        
 //ChengYingChenEnd

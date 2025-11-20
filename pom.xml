@@ -10,4 +10,27 @@
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
     </properties>
+        <dependencies>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.33</version> 
+        </dependency>
+    </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.flywaydb</groupId>
+                <artifactId>flyway-maven-plugin</artifactId>
+                <version>10.17.0</version> 
+                <configuration>
+                    
+                    <configFiles>
+                        <configFile>flyway.conf</configFile>
+                    </configFiles>
+
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>
