@@ -45,6 +45,12 @@ public class JournalPage extends User{
         if(j.JCExist(userCDate))
         {
             System.out.println("Journal exists");
+            System.out.println("--- Journal Entry for " + userCDate + "---");
+            String journalContent = j.readJ(userCDate);
+            System.out.println(journalContent);
+            System.out.println("\nPress Enter to go back.");
+            s.nextLine(); 
+            s.nextLine(); 
         
         } 
         else 

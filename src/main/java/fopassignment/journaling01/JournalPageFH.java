@@ -34,16 +34,34 @@ public class JournalPageFH extends User{
             exc.printStackTrace();
         }
     }
-<<<<<<< HEAD
-    
-   
 
     
-}
+    public String readJ(LocalDate date)
+    {
+        
+        File file = new File(J_FOLDER + date + ".txt");
 
+        if (!file.exists()) {
+            return null; 
+        }
+
+        StringBuilder content = new StringBuilder();
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                content.append(line).append("\n");
+            }
+        } 
+        catch (IOException exc) {
+            exc.printStackTrace();
+            return null;
+        }
+
+        return content.toString().trim(); 
+    }
     
-=======
 }
 
 //ChengYingChen End
->>>>>>> 68a2d4d94c1509c9ff6e1de7e07191650ede4ab6
+
