@@ -4,5 +4,3 @@
 flyway.conf
 # Ignore db properties with credentials
 db.properties
-# Ignore User Data File, each time pull new empty file. 
-UserData.txt
