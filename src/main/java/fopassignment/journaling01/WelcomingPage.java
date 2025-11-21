@@ -33,7 +33,7 @@ public class WelcomingPage extends User {
             WP.Register(); 
             return false;
         }
-        for (String[]userdata: txtdata){//for each loop //figure out use database and txt together!!!!
+        for (String[]userdata: txtdata){//for each loop 
             temail = userdata[0];
             tname = userdata[1];
             tpw = userdata[2];
