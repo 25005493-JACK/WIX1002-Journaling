@@ -12,7 +12,8 @@ import java.time.format.DateTimeFormatter;
 import java.sql.Connection;
 
 public class WelcomingPage extends User {
-    public static boolean Login(){ //compare user input with data in csv/txt file
+    public static boolean Login(){ //compare user input with data in csv/txt/sql file
+        UserDAO dao = new UserDAO();
         Scanner sc = new Scanner(System.in);
         User user = new User();
         List <String[]> txtdata = new ArrayList<>();
@@ -25,12 +26,14 @@ public class WelcomingPage extends User {
         System.out.println("Enter password:");
         pw = sc.next();
         
+        name = dao.getUserByEmail(email);
+        
         for (String[]userdata: txtdata){//for each loop //figure out use database and txt together!!!!
             temail = userdata[0];
             tname = userdata[1];
             tpw = userdata[2];
                 
-            if (email.equals(temail) && pw.equals(tpw)){
+            if (email.equals(temail) && pw.equals(tpw) && name.equals(tname)){ //compare & crosscheck user input(email&pw) and database username with txt file
                 LocalDate jourDate = LocalDate.now();
                 LocalTime Time = LocalTime.now();
                 DateTimeFormatter formatter24Hour = DateTimeFormatter.ofPattern("HH:mm:ss");
@@ -79,27 +82,32 @@ public class WelcomingPage extends User {
         String pw2 = sc.next();
               
         if (pw1.equals(pw2)){
-            pw = pw1;          
-            String txtFOP = System.getProperty("user.dir")+"\\data\\UserData.txt";//check if txt file exist, if not, create
-            
-            try(
-                FileWriter writer = new FileWriter(txtFOP, true);
-                PrintWriter pwriter = new PrintWriter(writer);
-            ){
-                pwriter.println(email + "\n" + name + "\n" + pw + "\n" + " ");
-            }
-            catch (IOException e){
-                System.out.println("Error in register.");
-                e.printStackTrace();
-            }
-            //save all variable to txt here
-            
+            pw = pw1;         
+            boolean success;
             try (Connection conn = DBConnection.getConnection()) {
-            System.out.println("Database connected successfully!");
+                System.out.println("Database connected successfully!");
 
-            UserDAO dao = new UserDAO();
-            boolean success = dao.saveUser(userId, name, email, pw);
-            System.out.println(success ? "User saved!" : "Failed to save user.");
+                UserDAO dao = new UserDAO();
+                success = dao.saveUser(userId, name, email, pw);//save data to sql database
+                if (success){//only save to txt after save to sql
+                    System.out.println("User saved!");
+                    String txtFOP = System.getProperty("user.dir")+"\\data\\UserData.txt";//check if txt file exist, if not, create
+            
+                    try(
+                        FileWriter writer = new FileWriter(txtFOP, true);
+                        PrintWriter pwriter = new PrintWriter(writer);
+                    ){
+                        pwriter.println(email + "\n" + name + "\n" + pw + "\n" + " ");
+                    }
+                    catch (IOException e){
+                        System.out.println("Error in register.");
+                        e.printStackTrace();
+                    }
+                    //save all variable to txt here
+                }
+                else{
+                    System.out.println("Fail to connect database.");
+                }
             } 
             catch (Exception e) {
                 e.printStackTrace();
