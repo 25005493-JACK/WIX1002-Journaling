@@ -27,7 +27,12 @@ public class WelcomingPage extends User {
         pw = sc.next();
         
         name = dao.getUserByEmail(email);
-        
+        if (name == null){
+            System.out.println("No data found, Please Register.");
+            WelcomingPage WP = new WelcomingPage();
+            WP.Register(); 
+            return false;
+        }
         for (String[]userdata: txtdata){//for each loop //figure out use database and txt together!!!!
             temail = userdata[0];
             tname = userdata[1];
