@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.ArrayList;
 
 public class User {
-    static int userId=000001;//change later
+    static int userId;//change later
     static String email, pw, name;
     static String txtemail, txtpw, txtname;
     static String temail, tpw, tname;
@@ -48,3 +48,4 @@ public class User {
     }
 }
 //TanWeiFengEnd
+//done created method to save data into txt file * 3/11/2025

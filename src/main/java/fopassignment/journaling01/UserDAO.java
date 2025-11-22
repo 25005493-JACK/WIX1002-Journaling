@@ -1,13 +1,12 @@
-
+//TanWeiFengStart
 package fopassignment.journaling01;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-public class UserDAO {
+public class UserDAO {//DAO=data access object
 
-    // Insert a new user
     public boolean saveUser(int userId, String name, String email, String password) {
         String sql = "INSERT INTO users (user_id, name, email, password_hash) VALUES (?, ?, ?, ?)";
 
@@ -28,7 +27,7 @@ public class UserDAO {
         }
     }
 
-    // Retrieve a user by email
+    // @yingchen, this code u can use to auto read user name from sqldatabase using email
     public String getUserByEmail(String email) {
         String sql = "SELECT name FROM user WHERE email = ?";
         try (Connection conn = DBConnection.getConnection();
@@ -46,3 +45,4 @@ public class UserDAO {
         return null;
     }
 }
+//TanWeiFengEnd

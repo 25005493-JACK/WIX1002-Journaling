@@ -1,4 +1,4 @@
-//ChengYingChen Start
+//ChengYingChenStart
 package fopassignment.journaling01;
 
 
@@ -34,6 +34,34 @@ public class JournalPageFH extends User{
             exc.printStackTrace();
         }
     }
+
+     public String readJ(LocalDate date)
+    {
+        
+        File file = new File(J_FOLDER + date + ".txt");
+
+        if (!file.exists()) {
+            return null; 
+        }
+
+        StringBuilder content = new StringBuilder();
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                content.append(line).append("\n");
+            }
+        } 
+        catch (IOException exc) {
+            exc.printStackTrace();
+            return null;
+        }
+
+        return content.toString().trim(); 
+    }
+     
+    
+    
 }
 
-//ChengYingChen End
+//ChengYingChenEnd
