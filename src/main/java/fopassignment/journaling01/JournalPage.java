@@ -66,7 +66,7 @@ public class JournalPage extends User{
                     String jConE = s.nextLine();
                     j.createJ(userCDate,jConE);
                     System.out.println("Journal edited and saved.\n");
-                }else if(menuC !=2 || menuC !=1)
+                }else if(menuC !=2 && menuC !=1)
                 {
                     System.out.println("Invalid entry. Please enter 1 or 2.");
                     System.out.println("\n\nWould you like to: \n" + "1. Edit This Journal \n" + "2. Back to Dates \n" );
