@@ -30,7 +30,7 @@ public class JournalPage extends User{
             
             if(userC == 0) 
                 {
-                    System.out.println("Logged out...");
+                    System.out.println("Loading...");
                     break; 
                 }
             
@@ -89,6 +89,6 @@ public class JournalPage extends User{
        
         }while(true);
         
-        }
+    }
 }
-
+//ChengYingChenEnd
