@@ -30,7 +30,7 @@ public class JournalPage extends User{
             
             if(userC == 0) 
                 {
-                    System.out.println("Logged out...");
+                    System.out.println("Loading...");
                     break; 
                 }
             

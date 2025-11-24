@@ -16,6 +16,7 @@ public class WelcomingPage extends User {
         UserDAO dao = new UserDAO();
         Scanner sc = new Scanner(System.in);
         User user = new User();
+        pwHashing pwh = new pwHashing();
         List <String[]> txtdata = new ArrayList<>();
         txtdata = user.txtfileReader(); 
             
@@ -37,8 +38,9 @@ public class WelcomingPage extends User {
             temail = userdata[0];
             tname = userdata[1];
             tpw = userdata[2];
-                
-            if (email.equals(temail) && pw.equals(tpw) && name.equals(tname)){ //compare & crosscheck user input(email&pw) and database username with txt file
+            String hashedpw = dao.getPwByEmail(email);
+            
+            if (email.equals(temail) && pwh.verifyPassword(pw, hashedpw) && name.equals(tname)){ //compare & crosscheck user input email pw username with txt n sql file
                 LocalDate jourDate = LocalDate.now();
                 LocalTime Time = LocalTime.now();
                 DateTimeFormatter formatter24Hour = DateTimeFormatter.ofPattern("HH:mm:ss");
@@ -58,7 +60,7 @@ public class WelcomingPage extends User {
                 return true;
             }            
             
-            else if(email.equals(temail) && !pw.equals(tpw)){
+            else if(email.equals(temail) && !pwh.verifyPassword(pw, hashedpw)){
                 System.out.println("Wrong password. Please login again.");
                 return false;
             }
@@ -91,9 +93,10 @@ public class WelcomingPage extends User {
             boolean success;
             try (Connection conn = DBConnection.getConnection()) {
                 System.out.println("Database connected successfully!");
-
+                pwHashing pwh = new pwHashing();
+                String hashedpw = pwh.hashPassword(pw);
                 UserDAO dao = new UserDAO();
-                success = dao.saveUser(userId, name, email, pw);//save data to sql database
+                success = dao.saveUser(userId, name, email, hashedpw);//save data to sql database
                 if (success){//only save to txt after save to sql
                     System.out.println("User saved!");
                     String txtFOP = System.getProperty("user.dir")+"\\data\\UserData.txt";//check if txt file exist, if not, create
