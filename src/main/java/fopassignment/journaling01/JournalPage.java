@@ -30,7 +30,7 @@ public class JournalPage extends User{
             
             if(userC == 0) 
                 {
-                    System.out.println("Logged out...");
+                    System.out.println("Loading...");
                     break; 
                 }
             
@@ -82,10 +82,10 @@ public class JournalPage extends User{
                     
                     String finalJournal = weatherLine + "\n\n" + jConE;
                     //LeeXinYiEnd
-                    
+     
                     j.createJ(userCDate,finalJournal);
                     System.out.println("Journal edited and saved.\n");
-                }else if(menuC !=2 || menuC !=1)
+                }else if(menuC !=2 && menuC !=1)
                 {
                     System.out.println("Invalid entry. Please enter 1 or 2.");
                     System.out.println("\n\nWould you like to: \n" + "1. Edit This Journal \n" + "2. Back to Dates \n" );

@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class Logout {
     public static boolean logout(){
         Scanner sc = new Scanner(System.in);
-        System.out.println("Do you wish to logout?");
+        System.out.println("Confirm logout?");
         System.out.println("\n1.Logout \t\t\t 2.Stay");
         System.out.println("\nPress 1 to logout and press 2 to stay.");
         int LO = sc.nextInt();
