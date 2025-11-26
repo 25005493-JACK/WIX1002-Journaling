@@ -64,7 +64,26 @@ public class JournalPage extends User{
                 {
                     System.out.println("Edit your journal entry for " + userCDate + " :");
                     String jConE = s.nextLine();
-                    j.createJ(userCDate,jConE);
+                    
+                    //LeeXinYiStart
+                    // read old jornal content for the selected date
+                    String oldContent = journalContent;
+                    
+                    // find "\n\n" which separates weather from journal text
+                    int firstNewLine = oldContent.indexOf("\n\n");
+                    String weatherLine;
+                    
+                    // if double new line exists, extract the weather line;
+                    if (firstNewLine != -1) {
+                        weatherLine = oldContent.substring(0, firstNewLine);
+                    } else {
+                        weatherLine = "Weather: Unavailable";
+                    }
+                    
+                    String finalJournal = weatherLine + "\n\n" + jConE;
+                    //LeeXinYiEnd
+                    
+                    j.createJ(userCDate,finalJournal);
                     System.out.println("Journal edited and saved.\n");
                 }else if(menuC !=2 || menuC !=1)
                 {
@@ -82,7 +101,16 @@ public class JournalPage extends User{
                 s.nextLine();
                 System.out.println("Enter your journal entry for " + userCDate +" :");
                 String jCon = s.nextLine();
-                j.createJ(userCDate, jCon );
+                
+                //LeeXinYiStart
+                // add weather
+                WeatherRecording WR = new WeatherRecording();
+                String weather = WR.getTodayWeather();
+                
+                String finalJournal = "Weather: " + weather + "\n\n" + jCon;
+                //LeeXinYiEnd
+                
+                j.createJ(userCDate, finalJournal );
                 System.out.println("Journal saved successfully!\n"); 
             }
 
