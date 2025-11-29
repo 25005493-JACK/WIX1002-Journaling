@@ -19,7 +19,7 @@ public class MoodClassification {
             
             if (bearerToken == null || bearerToken.isEmpty()) {
                 System.err.println("Error: BEARER_TOKEN is not set in the .env file.");
-                return "Unavailable (Token Missiong)";
+                return "Unavailable (Token Missing)";
             }
             
             // format the JSON body with the user's input

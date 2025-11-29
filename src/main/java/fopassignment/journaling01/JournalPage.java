@@ -25,6 +25,7 @@ public class JournalPage extends User{
             }
 
             System.out.println("Select date to view journal or create a journal.Enter 0 if you want to log out.");
+            System.out.println("Enter -1 for Weekly Summary"); //LeeXinYi  
             System.out.print("> ");
             int userC = s.nextInt();
             
@@ -32,18 +33,26 @@ public class JournalPage extends User{
                 {
                     System.out.println("Loading...");
                     break; 
-                }
-            
+                } 
+                else if (userC == -1) { //LeeXinYi
+                    weeklySummary();
+                    continue;
+            }
+
             while(true)
             {
                 if(userC >= 1 && userC < day)
                 {
                     break;
                 }
+                else if (userC == -1) { //LeeXinYi
+                    break;
+                }
                 else
                 {
                     System.out.println("Invalid date. Please choose again.");
                     userC = s.nextInt();
+                    s.nextLine();
                 }
             }
 
@@ -120,5 +129,52 @@ public class JournalPage extends User{
         }while(true);
         
     }
-}
+    
 //ChengYingChenEnd
+
+//LeeXinYiStart    
+    public static void weeklySummary() {
+        JournalPageFH j = new JournalPageFH();
+        LocalDate today = LocalDate.now();
+        DateTimeFormatter fmt = DateTimeFormatter.ofPattern("EEE, yyyy-MM-dd");
+        
+        System.out.println("\n*******Weekly Summary*******");
+        System.out.println("From " + today.minusDays(6) + " to " + today + "\n");
+        
+        for (int i = 6; i >= 0; i--) {
+            LocalDate date = today.minusDays(i);
+            
+            System.out.println(date.format(fmt));
+            
+            if (j.JCExist(date)) {
+                String content = j.readJ(date);
+                
+                String weather = extractField(content, "Weather: ");
+                String mood = extractField(content, "Mood: ");
+                
+                System.out.println("Weather: " + weather);
+                System.out.println("Mood: " + mood + "\n");
+                
+            } else {
+                System.out.println("No journal\n");
+            }
+        }
+    }
+    
+    private static String extractField(String text, String key) {
+        int start = text.indexOf(key);
+        if (start == -1) {
+            return "Unavailable"; 
+        }
+        
+        start += key.length();
+        
+        int end = text.indexOf("\n", start);
+        if (end == -1) {
+            return text.substring(start).trim();
+        }
+        
+        return text.substring(start, end).trim();
+    }
+}
+//LeeXinYiEnd
