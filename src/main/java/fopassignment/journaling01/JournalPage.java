@@ -65,23 +65,18 @@ public class JournalPage extends User{
                     System.out.println("Edit your journal entry for " + userCDate + " :");
                     String jConE = s.nextLine();
                     
-                    //LeeXinYiStart
-                    // read old jornal content for the selected date
-                    String oldContent = journalContent;
+//LeeXinYiStart
+                    String oldHeader;
+                    int splitIndex = journalContent.indexOf("\n\n");
                     
-                    // find "\n\n" which separates weather from journal text
-                    int firstNewLine = oldContent.indexOf("\n\n");
-                    String weatherLine;
-                    
-                    // if double new line exists, extract the weather line;
-                    if (firstNewLine != -1) {
-                        weatherLine = oldContent.substring(0, firstNewLine);
+                    if (splitIndex != -1) {
+                        oldHeader = journalContent.substring(0, splitIndex);
                     } else {
-                        weatherLine = "Weather: Unavailable";
+                        oldHeader = "Weather: Unavailable\nMood: Unknown";
                     }
                     
-                    String finalJournal = weatherLine + "\n\n" + jConE;
-                    //LeeXinYiEnd
+                    String finalJournal = oldHeader + "\n\n" + jConE;
+//LeeXinYiEnd
      
                     j.createJ(userCDate,finalJournal);
                     System.out.println("Journal edited and saved.\n");
@@ -102,15 +97,22 @@ public class JournalPage extends User{
                 System.out.println("Enter your journal entry for " + userCDate +" :");
                 String jCon = s.nextLine();
                 
-                //LeeXinYiStart
-                // add weather
+//LeeXinYiStart
+                // get weather data
                 WeatherRecording WR = new WeatherRecording();
                 String weather = WR.getTodayWeather();
+                System.out.println("Weather: " + weather);
                 
-                String finalJournal = "Weather: " + weather + "\n\n" + jCon;
-                //LeeXinYiEnd
+                // get mood/sentiment data
+                MoodClassification MC = new MoodClassification();
+                String mood = MC.classifySentiment(jCon);
+                System.out.println("Mood: " + mood);
                 
-                j.createJ(userCDate, finalJournal );
+                String header = "Weather: " + weather + "\nMood: " + mood;
+                String finalJournal = header + "\n\n" + jCon;
+//LeeXinYiEnd
+                
+                j.createJ(userCDate, finalJournal);
                 System.out.println("Journal saved successfully!\n"); 
             }
 

@@ -1,4 +1,4 @@
-
+//LeeXinYiStart
 package fopassignment.journaling01;
 
 public class WeatherRecording {
@@ -48,3 +48,4 @@ public class WeatherRecording {
     }       
 
 }
+//LeeXinYiEnd

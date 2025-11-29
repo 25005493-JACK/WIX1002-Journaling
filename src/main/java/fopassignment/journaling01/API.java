@@ -1,4 +1,4 @@
-
+//LeeXinYiStart
 package fopassignment.journaling01;
 
 import java.io.BufferedReader;
@@ -124,3 +124,4 @@ public class API {
 //        }
 //    }
 }
+//LeeXinYiEnd
