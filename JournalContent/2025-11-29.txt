@@ -1,0 +1,3 @@
+Weather: Tiada hujan
+Mood: POSITIVE
+
