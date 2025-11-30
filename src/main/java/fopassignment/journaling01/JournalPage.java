@@ -127,45 +127,4 @@ public class JournalPage extends User{
         }while(true);
     }   
 }
-        /*
-            if(j.JCExist(userCDate))
-            {
-                System.out.println("Journal exists");
-                System.out.println("--- Journal Entry for " + userCDate + "---");
-                String journalContent = j.readJ(userCDate);
-                System.out.println(journalContent);
-                System.out.println("\n\nWould you like to: \n" + "1. Edit This Journal \n" + "2. Back to Dates \n" );
-                System.out.print("> ");
-                int menuC = s.nextInt();
-                s.nextLine();
-                if(menuC == 1)
-                {
-                    System.out.println("Edit your journal entry for " + userCDate + " :");
-                    String jConE = s.nextLine();
-                    j.createJ(userCDate,jConE);
-                    System.out.println("Journal edited and saved.\n");
-                }else if(menuC !=2 && menuC !=1)
-                {
-                    System.out.println("Invalid entry. Please enter 1 or 2.");
-                    System.out.println("\n\nWould you like to: \n" + "1. Edit This Journal \n" + "2. Back to Dates \n" );
-                    System.out.print("> ");
-                    menuC = s.nextInt();
-                }
-                
-
-            } 
-            else 
-            {
-                System.out.println("No journal yet.");
-                s.nextLine();
-                System.out.println("Enter your journal entry for " + userCDate +" :");
-                String jCon = s.nextLine();
-                j.createJ(userCDate, jCon );
-                System.out.println("Journal saved successfully!\n"); 
-            }
-
-       
-        }while(true);*/
-        
-
 //ChengYingChenEnd
