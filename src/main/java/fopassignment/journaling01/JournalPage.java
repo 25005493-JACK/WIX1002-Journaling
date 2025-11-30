@@ -47,8 +47,12 @@ public class JournalPage extends User{
                 }
             }
 
+            JournalDataHandling dH = new JournalDataHandling();
+            int currentUserId = User.userId;
             JournalPageFH j = new JournalPageFH();
             LocalDate userCDate = regisDate.plusDays(userC - 1);
+            
+            JournalModel jM = dH.getJournalByDate(currentUserId, userCDate);
 
             if(j.JCExist(userCDate))
             {

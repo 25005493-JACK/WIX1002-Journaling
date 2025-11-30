@@ -87,4 +87,29 @@ public class JournalDataHandling {
         }
         return -1; 
     }
+
+    public boolean editJtoDB(JournalModel jM) 
+    {
+
+        String sql = "UPDATE journals SET content = ?, mood = ?, weather = ? WHERE user_id = ? AND entry_date = ?";
+    
+        try (Connection conn = DBConnection.getConnection();
+         PreparedStatement ps = conn.prepareStatement(sql)) 
+        {
+
+            ps.setString(1, jM.getContent());
+            ps.setString(2, jM.getMood());
+            ps.setString(3, jM.getWeather());
+            ps.setInt(4, jM.getUserId()); 
+            ps.setString(5, jM.getEntryDate().toString());
+        
+            return ps.executeUpdate() > 0;
+        
+        } 
+        catch (Exception e) 
+        {
+            e.printStackTrace();
+            return false;
+        }
+}
 }
