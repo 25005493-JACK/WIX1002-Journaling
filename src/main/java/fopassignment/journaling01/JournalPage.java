@@ -8,7 +8,12 @@ public class JournalPage extends User{
     public static void Journal(){
         Scanner s = new Scanner(System.in);
         LocalDate jourDate = LocalDate.now();
-        LocalDate regisDate = LocalDate.of(2025, 11, 1); //will set it later to real registration date according to each user 
+        //LocalDate regisDate = LocalDate.of(2025, 11, 1); //will set it later to real registration date according to each user 
+        LocalDate regisDate = User.createdD;
+        if (regisDate == null) 
+        {
+            regisDate = LocalDate.now(); 
+        }
         DateTimeFormatter DTF = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         date = regisDate.format(DTF);
          
@@ -54,7 +59,7 @@ public class JournalPage extends User{
             
             JournalModel jM = dH.getJournalByDate(currentUserId, userCDate);
             
-
+            
             if(jM != null) 
             {
                 
@@ -92,37 +97,38 @@ public class JournalPage extends User{
                     System.out.print("> ");
                     menuC = s.nextInt();
                 }
+            }    
+            else 
+            {
+                System.out.println("No journal yet.");
+                s.nextLine(); 
+                System.out.println("Enter your journal entry for " + userCDate +" :");
+                String jCon = s.nextLine();
+
+                String weather = "Xinyi you can call your api here.getWeather()"; 
+                String mood = "mood here";       
+
+                JournalModel createJM = new JournalModel(currentUserId, userCDate, mood, weather, jCon);
+
+                boolean savetoDB = dH.createJtoDB(createJM); 
+
+                if (savetoDB) 
+                {
+                    String topLine = "Weather: " + weather + "\nMood: " + mood;
+                    j.createJ(userCDate, topLine + "\n\n" + jCon); 
+
+                    System.out.println("Journal saved successfully to database and file!");
+                } 
                 else 
                 {
-                    System.out.println("No journal yet.");
-                    s.nextLine(); 
-                    System.out.println("Enter your journal entry for " + userCDate +" :");
-                    String jCon = s.nextLine();
-
-                    String weather = "Xinyi you can call your api here.getWeather()"; 
-                    String mood = "mood here";       
-
-                    JournalModel createJM = new JournalModel(currentUserId, userCDate, mood, weather, jCon);
-
-                    boolean savetoDB = dH.createJtoDB(createJM); 
-
-                    if (savetoDB) 
-                    {
-                        String topLine = "Weather: " + weather + "\nMood: " + mood;
-                        j.createJ(userCDate, topLine + "\n\n" + jCon); 
-
-                        System.out.println("Journal saved successfully to database and file!");
-                    } 
-                    else 
-                    {
-                        System.out.println("Database save failed.");
-                    }
+                    System.out.println("Database save failed.");
+                }
             }
         }while(true);
-    
-
-
-            /*if(j.JCExist(userCDate))
+    }   
+}
+        /*
+            if(j.JCExist(userCDate))
             {
                 System.out.println("Journal exists");
                 System.out.println("--- Journal Entry for " + userCDate + "---");
@@ -156,11 +162,10 @@ public class JournalPage extends User{
                 String jCon = s.nextLine();
                 j.createJ(userCDate, jCon );
                 System.out.println("Journal saved successfully!\n"); 
-            }*/
+            }
 
        
-        }while(true);
+        }while(true);*/
         
-    }
-}
+
 //ChengYingChenEnd

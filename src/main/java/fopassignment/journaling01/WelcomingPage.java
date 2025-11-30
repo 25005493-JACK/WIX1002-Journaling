@@ -18,8 +18,7 @@ public class WelcomingPage extends User {
         User user = new User();
         pwHashing pwh = new pwHashing();
         List <String[]> txtdata = new ArrayList<>();
-        txtdata = user.txtfileReader(); 
-            
+        txtdata = user.txtfileReader();
         System.out.println("Welcome back! \nPlease enter the details to login.");
         System.out.println("Enter user email:");
         email = sc.next();
@@ -41,6 +40,28 @@ public class WelcomingPage extends User {
             String hashedpw = dao.getPwByEmail(email);
             
             if (email.equals(temail) && pwh.verifyPassword(pw, hashedpw) && name.equals(tname)){ //compare & crosscheck user input email pw username with txt n sql file
+//ChengYingChenStarts                
+                JournalDataHandling jDH = new JournalDataHandling();
+       
+                int getUId = jDH.getUserIdByEmail(email); 
+
+                LocalDate regisD = dao.getCreatedDByEmail(email); 
+
+                if (getUId > 0) {
+                    User.userId = getUId; // Store the ID (e.g., 1 or 3)
+                } else {
+                    return false;
+                }
+                
+                if (regisD != null) 
+                {
+                    User.createdD = regisD; 
+                } 
+                else 
+                {                    
+                    User.createdD = LocalDate.now(); 
+                }
+//ChengYingChenEnds
                 LocalDate jourDate = LocalDate.now();
                 LocalTime Time = LocalTime.now();
                 DateTimeFormatter formatter24Hour = DateTimeFormatter.ofPattern("HH:mm:ss");
