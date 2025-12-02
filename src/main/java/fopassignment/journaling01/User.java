@@ -5,6 +5,7 @@ import java.io.FileReader;
 import java.io.BufferedReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.ArrayList;
 
@@ -14,6 +15,7 @@ public class User {
     static String txtemail, txtpw, txtname;
     static String temail, tpw, tname;
     static String content, date, weather=null, mood=null; 
+    public static LocalDate createdD;
     
     public static List <String[]> txtfileReader(){
         String txtFOP =System.getProperty("user.dir")+"\\data\\UserData.txt";

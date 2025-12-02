@@ -8,7 +8,12 @@ public class JournalPage extends User{
     public static void Journal(){
         Scanner s = new Scanner(System.in);
         LocalDate jourDate = LocalDate.now();
-        LocalDate regisDate = LocalDate.of(2025, 11, 1); //will set it later to real registration date according to each user 
+        //LocalDate regisDate = LocalDate.of(2025, 11, 1); //will set it later to real registration date according to each user 
+        LocalDate regisDate = User.createdD;
+        if (regisDate == null) 
+        {
+            regisDate = LocalDate.now(); 
+        }
         DateTimeFormatter DTF = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         date = regisDate.format(DTF);
          
@@ -57,82 +62,62 @@ public class JournalPage extends User{
                 }
             }
 
+            JournalDataHandling dH = new JournalDataHandling();
+            int currentUserId = User.userId;
             JournalPageFH j = new JournalPageFH();
             LocalDate userCDate = regisDate.plusDays(userC - 1);
-
-            if(j.JCExist(userCDate))
+            
+            JournalModel jM = dH.getJournalByDate(currentUserId, userCDate);
+            
+            
+            if(jM != null) 
             {
+                
                 System.out.println("Journal exists");
                 System.out.println("--- Journal Entry for " + userCDate + "---");
-                String journalContent = j.readJ(userCDate);
-                System.out.println(journalContent);
-                System.out.println("\n\nWould you like to: \n" + "1. Edit This Journal \n" + "2. Back to Dates \n" );
+                System.out.println("Weather: " + jM.getWeather()); 
+                System.out.println("Mood: " + jM.getMood()); 
+                System.out.println("Content: " + jM.getContent()); 
+                System.out.println("\n\nWould you like to: \n" + "1. Edit This Journal \n" + "2. Back to Dates \n");
                 System.out.print("> ");
                 int menuC = s.nextInt();
                 s.nextLine();
+                
                 if(menuC == 1)
                 {
                     System.out.println("Edit your journal entry for " + userCDate + " :");
                     String jConE = s.nextLine();
                     
-//LeeXinYiStart
-                    String oldHeader;
-                    int splitIndex = journalContent.indexOf("\n\n");
+                    String sameWeather = jM.getWeather();
+                  
+                    MoodClassification MC = new MoodClassification();
+                    String newMood = MC.classifySentiment(jConE);
+                            
+                    JournalModel editjM = new JournalModel(currentUserId, userCDate, newMood, sameWeather, jConE);
+                    dH.editJtoDB(editjM);
+
+                    String header = "Weather: " + sameWeather + "\nMood: " + newMood;
+                    String finalJournal = header + "\n\n" + jConE;
+                    j.createJ(userCDate, finalJournal); 
                     
-                    if (splitIndex != -1) {
-                        oldHeader = journalContent.substring(0, splitIndex);
-                    } else {
-                        oldHeader = "Weather: Unavailable\nMood: Unknown";
-                    }
-                    
-                    String finalJournal = oldHeader + "\n\n" + jConE;
-//LeeXinYiEnd
-     
-                    j.createJ(userCDate,finalJournal);
                     System.out.println("Journal edited and saved.\n");
-                }else if(menuC !=2 && menuC !=1)
+                    
+                }
+                else if(menuC !=2 && menuC !=1)
                 {
                     System.out.println("Invalid entry. Please enter 1 or 2.");
                     System.out.println("\n\nWould you like to: \n" + "1. Edit This Journal \n" + "2. Back to Dates \n" );
                     System.out.print("> ");
                     menuC = s.nextInt();
                 }
-                
-
-            } 
-            else 
-            {
-            {
-                System.out.println("Journal exists");
-                System.out.println("--- Journal Entry for " + userCDate + "---");
-                String journalContent = j.readJ(userCDate);
-                System.out.println(journalContent);
-                System.out.println("\n\nWould you like to: \n" + "1. Edit This Journal \n" + "2. Back to Dates \n" );
-                System.out.print("> ");
-                int menuC = s.nextInt();
-                s.nextLine();
-                if(menuC == 1)
-                {
-                    System.out.println("Edit your journal entry for " + userCDate + " :");
-                    String jConE = s.nextLine();
-                    j.createJ(userCDate,jConE);
-                    System.out.println("Journal edited and saved.\n");
-                }else if(menuC !=2 && menuC !=1)
-                {
-                    System.out.println("Invalid entry. Please enter 1 or 2.");
-                    System.out.println("\n\nWould you like to: \n" + "1. Edit This Journal \n" + "2. Back to Dates \n" );
-                    System.out.print("> ");
-                    menuC = s.nextInt();
-                }
-                
-
-            } 
+            }    
             else 
             {
                 System.out.println("No journal yet.");
-                s.nextLine();
+                s.nextLine(); 
                 System.out.println("Enter your journal entry for " + userCDate +" :");
                 String jCon = s.nextLine();
+                 
                 
 //LeeXinYiStart
                 // get weather data
@@ -144,20 +129,30 @@ public class JournalPage extends User{
                 MoodClassification MC = new MoodClassification();
                 String mood = MC.classifySentiment(jCon);
                 System.out.println("Mood: " + mood);
-                
-                String header = "Weather: " + weather + "\nMood: " + mood;
-                String finalJournal = header + "\n\n" + jCon;
+             }
 //LeeXinYiEnd
-                
-                j.createJ(userCDate, finalJournal);
-                System.out.println("Journal saved successfully!\n"); 
-            }
 
-       
+                JournalModel createJM = new JournalModel(currentUserId, userCDate, mood, weather, jCon);
+
+                boolean savetoDB = dH.createJtoDB(createJM); 
+
+                if (savetoDB) 
+                {
+        //LeeXinYiStart
+                    String header = "Weather: " + weather + "\nMood: " + mood;
+                    String finalJournal = header + "\n\n" + jCon;
+                    j.createJ(userCDate, finalJournal); 
+        //:eeXinYiEnd
+                    System.out.println("Journal saved successfully to database and file!");
+                } 
+                else 
+                {
+                    System.out.println("Database save failed.");
+                }
+            }
         }while(true);
-        
-    }
-    
+    }   
+}
 //ChengYingChenEnd
 
 //LeeXinYiStart    

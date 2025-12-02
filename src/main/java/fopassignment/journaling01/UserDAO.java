@@ -4,6 +4,7 @@ package fopassignment.journaling01;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.time.LocalDate;
 
 public class UserDAO {//DAO=data access object
 
@@ -61,5 +62,32 @@ public class UserDAO {//DAO=data access object
         }
         return null;
     }
-}
+
 //TanWeiFengEnd
+// ChengYingChenStarts
+
+    public LocalDate getCreatedDByEmail(String email) 
+    {
+        String sql = "SELECT created_at FROM users WHERE email = ?"; 
+
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) 
+        {
+
+            ps.setString(1, email);
+            try (ResultSet rs = ps.executeQuery()) 
+            {
+                if (rs.next()) 
+                {
+                    return rs.getTimestamp("created_at").toLocalDateTime().toLocalDate(); 
+                }
+            }
+        }
+        catch (Exception e) 
+        {
+            e.printStackTrace();
+        }
+        return null;
+}
+// ChengYingChenEnds
+}
