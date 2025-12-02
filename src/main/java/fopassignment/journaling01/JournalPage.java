@@ -9,19 +9,22 @@ public class JournalPage extends User{
         LocalDate jourDate = LocalDate.now();
         
         LocalDate regisDate = User.createdD;
-        if (regisDate == null) {
+        if (regisDate == null) 
+        {
             regisDate = LocalDate.now();
         }
         
         DateTimeFormatter DTF = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         date = regisDate.format(DTF);
           
-        do {
+        do 
+        {
             int day = 1;
             System.out.println("*******Journal Dates*******");
             LocalDate rD = regisDate;
             
-            while(rD.isBefore(jourDate.plusDays(1))) {
+            while(rD.isBefore(jourDate.plusDays(1))) 
+            {
                 System.out.println(day + ". " + rD);
                 rD = rD.plusDays(1);
                 day ++;
@@ -34,20 +37,29 @@ public class JournalPage extends User{
             int userC = s.nextInt();
             s.nextLine();
             
-            if(userC == 0) {
+            if(userC == 0) 
+            {
                 System.out.println("Loading...");
                 break;
-            } else if (userC == -1) { 
+            } 
+            else if (userC == -1) 
+            { 
                 weeklySummary();
                 continue;
             }
             
-            while(true) {
-                if(userC >= 1 && userC < day) {
+            while(true) 
+            {
+                if(userC >= 1 && userC < day) 
+                {
                     break;
-                } else if (userC == -1) { 
+                } 
+                else if (userC == -1) 
+                { 
                     break;
-                } else {
+                } 
+                else 
+                {
                     System.out.println("Invalid date. Please choose again.");
                     System.out.print("> ");
                     userC = s.nextInt();
@@ -63,7 +75,8 @@ public class JournalPage extends User{
             JournalModel jM = dH.getJournalByDate(currentUserId, userCDate);
             
             
-            if(jM != null) { 
+            if(jM != null) 
+            { 
                 
                 System.out.println("Journal exists");
                 System.out.println("--- Journal Entry for " + userCDate + "---");
@@ -77,7 +90,8 @@ public class JournalPage extends User{
                 int menuC = s.nextInt();
                 s.nextLine();
                 
-                if(menuC == 1) {
+                if(menuC == 1) 
+                {
                     System.out.println("Edit your journal entry for " + userCDate + " :");
                     String jConE = s.nextLine();
                     
@@ -95,7 +109,9 @@ public class JournalPage extends User{
                     
                     System.out.println("Journal edited and saved.\n");
                     
-                } else if(menuC !=2 && menuC !=1) {
+                } 
+                else if(menuC !=2 && menuC !=1)
+                {
                     System.out.println("Invalid entry. Please enter 1 or 2.");
                     System.out.println("\n\nWould you like to: \n" + "1. Edit This Journal \n" + "2. Back to Dates \n" );
                     System.out.print("> ");
@@ -103,39 +119,39 @@ public class JournalPage extends User{
                     s.nextLine(); 
                 }
             } 
-            else { 
-                System.out.println("No journal yet.");
-                s.nextLine(); 
+            else 
+            { 
+                System.out.println("No journal yet."); 
                 System.out.println("Enter your journal entry for " + userCDate +" :");
                 String jCon = s.nextLine();
-                
-                String weather; 
-                String mood;
                 
                 //LeeXinYiStart
                 // get weather data
                 WeatherRecording WR = new WeatherRecording();
-                weather = WR.getTodayWeather(); 
+                String weather = WR.getTodayWeather(); 
                 System.out.println("Weather: " + weather);
                 
                 // get mood/sentiment data
                 MoodClassification MC = new MoodClassification();
-                mood = MC.classifySentiment(jCon); 
+                String mood = MC.classifySentiment(jCon); 
                 System.out.println("Mood: " + mood);
             //LeeXinYiEnd
 
                 JournalModel createJM = new JournalModel(currentUserId, userCDate, mood, weather, jCon);
                 boolean savetoDB = dH.createJtoDB(createJM); 
 
-                if (savetoDB) {
-                    //LeeXinYiStart (File synchronization)
+                if (savetoDB) 
+                {
+                    //LeeXinYiStart 
                     String header = "Weather: " + weather + "\nMood: " + mood;
                     String finalJournal = header + "\n\n" + jCon;
                     j.createJ(userCDate, finalJournal); 
                     //LeeXinYiEnd
                     
                     System.out.println("Journal saved successfully to database and file!");
-                } else {
+                } 
+                else 
+                {
                     System.out.println("Database save failed.");
                 }
             }
