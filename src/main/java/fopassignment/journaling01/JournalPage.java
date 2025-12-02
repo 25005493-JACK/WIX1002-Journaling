@@ -107,7 +107,8 @@ public class JournalPage extends User{
 
                 String weather = "Xinyi you can call your api here.getWeather()"; 
                 String mood = "mood here";       
-
+                
+                
                 JournalModel createJM = new JournalModel(currentUserId, userCDate, mood, weather, jCon);
 
                 boolean savetoDB = dH.createJtoDB(createJM); 
