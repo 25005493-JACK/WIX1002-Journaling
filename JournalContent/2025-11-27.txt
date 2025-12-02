@@ -1,4 +1,10 @@
+<<<<<<< HEAD
+Weather: Xinyi you can call your api here.getWeather()
+Mood: mood here
+
+=======
 Weather: Tiada hujan
 Mood: POSITIVE
 
 hihihi
+>>>>>>> 20c8c5ef9db59394548aa47466c4022c5e78313c
