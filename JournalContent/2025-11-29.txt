@@ -1,3 +1,4 @@
-Weather: Tiada hujan
+Weather: Scattered thunderstorms
 Mood: POSITIVE
 
+I am excited 

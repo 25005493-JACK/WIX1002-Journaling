@@ -1,4 +1,4 @@
 Weather: Xinyi you can call your api here.getWeather()
-Mood: Unavailable (Token Missing)
+Mood: POSITIVE
 
 I am happy
