@@ -1,4 +1,4 @@
 Weather: Scattered thunderstorms
-Mood: Unavailable (Token Missing)
+Mood: POSITIVE
 
-I am very sad today
+Hi, can you detect my mood?

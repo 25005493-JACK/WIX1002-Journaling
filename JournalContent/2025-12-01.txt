@@ -1,4 +1,4 @@
 Weather: Scattered thunderstorms
-Mood: NEGATIVE
+Mood: POSITIVE
 
-I am despair
+I won the game

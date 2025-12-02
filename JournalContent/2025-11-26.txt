@@ -1,11 +1,4 @@
-<<<<<<< HEAD
 Weather: Xinyi you can call your api here.getWeather()
-Mood: mood here
+Mood: Unavailable (Token Missing)
 
-test1
-=======
-Weather: Tiada hujan
-Mood: POSITIVE
-
-lololo
->>>>>>> 20c8c5ef9db59394548aa47466c4022c5e78313c
+I am happy 

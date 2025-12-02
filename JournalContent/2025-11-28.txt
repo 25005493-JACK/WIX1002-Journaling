@@ -1,4 +1,4 @@
-Weather: Tiada hujan
-Mood: NEGATIVE
+Weather: Scattered thunderstorms
+Mood: Unavailable (Token Missing)
 
-test....
+test1
