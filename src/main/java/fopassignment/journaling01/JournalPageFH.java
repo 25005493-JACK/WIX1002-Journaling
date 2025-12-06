@@ -12,7 +12,8 @@ public class JournalPageFH extends User{
     public JournalPageFH() 
     { 
         File folder = new File(J_FOLDER);
-        if (!folder.exists()) {
+        if (!folder.exists()) 
+        {
             folder.mkdir(); 
         }
     }
@@ -40,7 +41,8 @@ public class JournalPageFH extends User{
         
         File file = new File(J_FOLDER + date + ".txt");
 
-        if (!file.exists()) {
+        if (!file.exists()) 
+        {
             return null; 
         }
 
@@ -48,11 +50,13 @@ public class JournalPageFH extends User{
 
         try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
             String line;
-            while ((line = reader.readLine()) != null) {
+            while ((line = reader.readLine()) != null) 
+            {
                 content.append(line).append("\n");
             }
         } 
-        catch (IOException exc) {
+        catch (IOException exc) 
+        {
             exc.printStackTrace();
             return null;
         }
