@@ -72,7 +72,7 @@ public class WelcomingPage extends User {
     }           
     
     
-    public static void Register() { //no return, save everything to csv/txt
+    public static void Register() { //no return, save everything to csv/txt and sql
         Scanner sc = new Scanner(System.in);
         WelcomingPage WP = new WelcomingPage();
         
@@ -115,6 +115,8 @@ public class WelcomingPage extends User {
                 }
                 else{
                     System.out.println("Fail to connect database.");
+                    System.out.println("This email has already linked to an account.\nPlease register using another email.");
+                    WP.Register(); //Java Recursion
                 }
             } 
             catch (Exception e) {

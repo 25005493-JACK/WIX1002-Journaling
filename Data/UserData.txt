@@ -6,7 +6,3 @@ s100202@student.fop
 John Doe
 pw-Stud#2
 
-ABCD@gmail.com
-ABCD
-ABCD123
- 
