@@ -6,7 +6,7 @@ public class Logout {
         Scanner sc = new Scanner(System.in);
         System.out.println("Confirm logout?");
         System.out.println("\n1.Logout \t\t\t 2.Stay");
-        System.out.println("\nPress 1 to logout and press 2 to stay.");
+        System.out.println("\nEnter 1 to logout and enter 2 to stay.\n>");
         int LO = sc.nextInt();
             secondloop:
                 while (true)

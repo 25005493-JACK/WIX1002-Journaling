@@ -20,10 +20,10 @@ public class WelcomingPage extends User {
         List <String[]> txtdata = new ArrayList<>();
         txtdata = user.txtfileReader();
         System.out.println("\nWelcome back! \nPlease enter the details to login.");
-        System.out.println("Enter user email:");
+        System.out.println("Enter user email:\n>");
         email = sc.next();
         
-        System.out.println("Enter password:");
+        System.out.println("Enter password:\n>");
         pw = sc.next();
         
         name = dao.getUserByEmail(email);
@@ -75,7 +75,7 @@ public class WelcomingPage extends User {
                 else 
                     System.out.println("\nGood Evening");
         
-                System.out.println("Welcome back, "+ tname +"!");
+                System.out.println("Welcome back, "+ name +"!");
                 System.out.println("Today is " + jourDate);
                 System.out.println("The time now is " + jourTime);
                 return true;
@@ -98,15 +98,15 @@ public class WelcomingPage extends User {
         WelcomingPage WP = new WelcomingPage();
         
         System.out.println("\nWelcome to XXX Journaling!");
-        System.out.println("Enter your name:");
+        System.out.println("Enter your name:\n>");
         name = sc.nextLine();
         
-        System.out.println("Enter your email address:");
+        System.out.println("Enter your email address:\n>");
         email = sc.nextLine();
         
-        System.out.println("Set your password:");
+        System.out.println("Set your password:\n>");
         String pw1 = sc.next();
-        System.out.println("Confirm your password:");
+        System.out.println("Confirm your password:\n>");
         String pw2 = sc.next();
               
         if (pw1.equals(pw2)){
@@ -138,7 +138,7 @@ public class WelcomingPage extends User {
                     System.out.println("\nFail to connect database.");
                     System.out.println("This email has already linked to an account.\nPlease register using another email or try login again.");
                     while (true){
-                        System.out.println("Enter 1 to try login again and enter 2 to register using another email.");
+                        System.out.println("Enter 1 to try login again and enter 2 to register using another email.\n>");
                         int relogin=sc.nextInt();
                         if (relogin== 1){
                             return;
