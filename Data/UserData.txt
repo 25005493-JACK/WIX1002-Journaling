@@ -18,4 +18,16 @@ Samuel
 jack@student.fop
 Jack
 123Jack
+
+ABCD@gmail.com
+ABCD
+ABCD123
+
+ABC@gmail.com
+ABC
+ABCD123
+
+AAA@gmail.com
+AAA
+AAA123
  

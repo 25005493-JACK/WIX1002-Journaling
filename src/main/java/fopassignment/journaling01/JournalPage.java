@@ -104,7 +104,7 @@ public class JournalPage extends User{
 
                     String header = "Weather: " + sameWeather + "\nMood: " + newMood;
                     String finalJournal = header + "\n\n" + jConE; 
-                    j.createJ(userCDate, finalJournal); 
+                    j.createJ(currentUserId, userCDate, finalJournal); 
                     
                     System.out.println("Journal edited and saved.\n");
                     
@@ -147,7 +147,7 @@ public class JournalPage extends User{
                     //LeeXinYiStart 
                     String header = "Weather: " + weather + "\nMood: " + mood;
                     String finalJournal = header + "\n\n" + jCon;
-                    j.createJ(userCDate, finalJournal); 
+                    j.createJ(currentUserId, userCDate, finalJournal); 
                     //LeeXinYiEnd
                     
                     System.out.println("\nJournal saved successfully to database and file!");
@@ -174,8 +174,8 @@ public class JournalPage extends User{
             
             System.out.println(date.format(fmt));
             
-            if (j.JCExist(date)) {
-                String content = j.readJ(date);
+            if (j.JCExist(userId, date)) {
+                String content = j.readJ(userId, date);
                 
                 String weather = extractField(content, "Weather: ");
                 String mood = extractField(content, "Mood: ");
