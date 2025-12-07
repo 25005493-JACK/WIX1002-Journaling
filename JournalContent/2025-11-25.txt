@@ -1,4 +1,3 @@
 Weather: Xinyi you can call your api here.getWeather()
 Mood: POSITIVE
 
-I am happy
