@@ -31,8 +31,10 @@ public class UserDAO {//DAO=data access object
     // @yingchen, this code u can use to auto read user name from sqldatabase using email
     public String getUserByEmail(String email) {
         String sql = "SELECT name FROM users WHERE email = ?";
-        try (Connection conn = DBConnection.getConnection();
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
+        try (
+            Connection conn = DBConnection.getConnection();
+            PreparedStatement stmt = conn.prepareStatement(sql)
+            ) {
 
             stmt.setString(1, email);
             ResultSet rs = stmt.executeQuery();
@@ -40,7 +42,8 @@ public class UserDAO {//DAO=data access object
             if (rs.next()) {
                 return rs.getString("name");
             }
-        } catch (Exception e) {
+        } 
+        catch (Exception e) {
             e.printStackTrace();
         }
         return null;
@@ -48,8 +51,10 @@ public class UserDAO {//DAO=data access object
     
     public String getPwByEmail(String email) {
         String sql = "SELECT password_hash FROM users WHERE email = ?";
-        try (Connection conn = DBConnection.getConnection();
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
+        try (
+            Connection conn = DBConnection.getConnection();
+            PreparedStatement stmt = conn.prepareStatement(sql)
+            ) {
 
             stmt.setString(1, email);
             ResultSet rs = stmt.executeQuery();
@@ -57,12 +62,13 @@ public class UserDAO {//DAO=data access object
             if (rs.next()) {
                 return rs.getString("password_hash");
             }
-        } catch (Exception e) {
+        } 
+        catch (Exception e) {
             e.printStackTrace();
         }
         return null;
     }
-
+    
 //TanWeiFengEnd
 // ChengYingChenStarts
 

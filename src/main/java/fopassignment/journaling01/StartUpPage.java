@@ -17,7 +17,7 @@ public class StartUpPage {
         System.out.println("Enjoy your journaling process with XXX Journaling!");
         System.out.println("\n1.Login \t\t\t 2.Register");
         
-        System.out.println("\nPress 1 to login and press 2 to register as new user.");
+        System.out.print("\nEnter 1 to login and enter 2 to register as new user.\n>");
         LR = sc.nextInt();
         
         outerloop:
@@ -32,7 +32,7 @@ public class StartUpPage {
                     break outerloop;
                 }
                 default: {
-                    System.out.println("\nPress 1 to login and press 2 to register as new user.");
+                    System.out.print("\nEnter 1 to login and enter 2 to register as new user.\n>");
                     LR = sc.nextInt();
                 }
             }//java switch

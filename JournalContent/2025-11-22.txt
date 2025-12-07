@@ -1,4 +1,0 @@
-Weather: Tiada hujan
-Mood: POSITIVE
-
-sunny....
