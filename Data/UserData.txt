@@ -6,17 +6,16 @@ s100202@student.fop
 John Doe
 pw-Stud#2
 
-ABCD@gmail.com
-ABCD
-ABCD123
- 
-AAA@gmail.com
-AAA
-AAA123
 
-0506xinyi@gmail.com
-xy
-888
+sampson@student.fop
+Sampson
+123Sampson
  
-
+samuel@student.fop
+Samuel
+123Samuel
+ 
+jack@student.fop
+Jack
+123Jack
  

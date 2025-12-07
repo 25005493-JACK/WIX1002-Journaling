@@ -30,7 +30,7 @@ public class JournalPage extends User{
                 day ++;
             }
 
-            System.out.println("Select date to view journal or create a journal.Enter 0 if you want to log out.");
+            System.out.println("Select date to view journal or create a journal.\nEnter 0 if you want to log out.");
             System.out.println("Enter -1 for Weekly Summary"); 
             System.out.print("> ");
             
@@ -91,7 +91,7 @@ public class JournalPage extends User{
                 
                 if(menuC == 1) 
                 {
-                    System.out.println("Edit your journal entry for " + userCDate + " :");
+                    System.out.print("Edit your journal entry for " + userCDate + " :\n>");
                     String jConE = s.nextLine();
                     
                     String sameWeather = jM.getWeather();
@@ -126,7 +126,7 @@ public class JournalPage extends User{
             else 
             { 
                 System.out.println("\nNo journal yet."); 
-                System.out.println("Enter your journal entry for " + userCDate +" :");
+                System.out.print("Enter your journal entry for " + userCDate +" :\n>");
                 String jCon = s.nextLine();
                 
                 //LeeXinYiStart
