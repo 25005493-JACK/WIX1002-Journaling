@@ -18,15 +18,15 @@ public class JournalPageFH extends User{
         }
     }
    
-    public boolean JCExist(LocalDate date) 
+    public boolean JCExist(int currentUserId, LocalDate date) 
     {
-        File file = new File(J_FOLDER + date + ".txt");
+        File file = new File(J_FOLDER + date + "_" + currentUserId + ".txt");
         return file.exists();
     }
     
-    public void createJ(LocalDate userCDate, String jCon)
+    public void createJ(int currentUserId, LocalDate userCDate, String jCon)
     {
-        try (FileWriter createFile = new FileWriter(J_FOLDER + userCDate + ".txt")) 
+        try (FileWriter createFile = new FileWriter(J_FOLDER + userCDate + "_" + currentUserId + ".txt")) 
         {
             createFile.write(jCon); 
         } 
@@ -36,10 +36,10 @@ public class JournalPageFH extends User{
         }
     }
 
-     public String readJ(LocalDate date)
+     public String readJ(int currentUserId, LocalDate date)
     {
         
-        File file = new File(J_FOLDER + date + ".txt");
+        File file = new File(J_FOLDER + date + "_" + currentUserId + ".txt");
 
         if (!file.exists()) 
         {
