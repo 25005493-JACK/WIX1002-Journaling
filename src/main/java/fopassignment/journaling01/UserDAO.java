@@ -69,26 +69,6 @@ public class UserDAO {//DAO=data access object
         return null;
     }
     
-    public String getDateByEmail(String email) {
-        String sql = "SELECT created_at FROM users WHERE email = ?";
-        try (
-            Connection conn = DBConnection.getConnection();
-            PreparedStatement stmt = conn.prepareStatement(sql)
-            ) {
-
-            stmt.setString(1, email);
-            ResultSet rs = stmt.executeQuery();
-
-            if (rs.next()) {
-                return rs.getString("created_at");
-            }
-        } 
-        catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
 //TanWeiFengEnd
 // ChengYingChenStarts
 
