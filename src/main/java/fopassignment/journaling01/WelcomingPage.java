@@ -19,7 +19,7 @@ public class WelcomingPage extends User {
         pwHashing pwh = new pwHashing();
         List <String[]> txtdata = new ArrayList<>();
         txtdata = user.txtfileReader();
-        System.out.println("Welcome back! \nPlease enter the details to login.");
+        System.out.println("\nWelcome back! \nPlease enter the details to login.");
         System.out.println("Enter user email:");
         email = sc.next();
         
@@ -113,7 +113,7 @@ public class WelcomingPage extends User {
             pw = pw1;         
             boolean success;
             try (Connection conn = DBConnection.getConnection()) {
-                System.out.println("Database connected successfully!");
+                System.out.println("\nDatabase connected successfully!");
                 pwHashing pwh = new pwHashing();
                 String hashedpw = pwh.hashPassword(pw);
                 UserDAO dao = new UserDAO();
@@ -135,8 +135,21 @@ public class WelcomingPage extends User {
                     //save all variable to txt here
                 }
                 else{
-                    System.out.println("Fail to connect database.");
-                    System.out.println("This email has already linked to an account.\nPlease register using another email.");
+                    System.out.println("\nFail to connect database.");
+                    System.out.println("This email has already linked to an account.\nPlease register using another email or try login again.");
+                    while (true){
+                        System.out.println("Enter 1 to try login again and enter 2 to register using another email.");
+                        int relogin=sc.nextInt();
+                        if (relogin== 1){
+                            return;
+                        }
+                        else if (relogin ==2){
+                            break;
+                        }
+                        else{
+                            System.out.print("Invalid. ");
+                        }
+                    }
                     WP.Register(); //Java Recursion
                 }
             } 

@@ -6,3 +6,12 @@ s100202@student.fop
 John Doe
 pw-Stud#2
 
+
+sampson@student.fop
+Sampson
+123Sampson
+ 
+samuel@student.fop
+Samuel
+123Samuel
+ 

@@ -1,4 +1,0 @@
-Weather: No rain
-Mood: NEGATIVE
-
-hhhhhh

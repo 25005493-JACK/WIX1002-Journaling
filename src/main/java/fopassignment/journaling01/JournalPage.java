@@ -30,7 +30,7 @@ public class JournalPage extends User{
                 day ++;
             }
 
-            System.out.println("Select date to view journal or create a journal.Enter 0 if you want to log out.");
+            System.out.println("Select date to view journal or create a journal.\nEnter 0 if you want to log out.");
             System.out.println("Enter -1 for Weekly Summary"); 
             System.out.print("> ");
             
