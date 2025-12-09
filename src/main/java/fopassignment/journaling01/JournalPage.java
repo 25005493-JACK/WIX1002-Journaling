@@ -37,17 +37,6 @@ public class JournalPage extends User{
             int userC = s.nextInt();
             s.nextLine();
             
-            if(userC == 0) 
-            {
-                System.out.println("Loading...");
-                break;
-            } 
-            else if (userC == -1) 
-            { 
-                weeklySummary();
-                continue;
-            }
-            
             while(true) 
             {
                 if(userC >= 1 && userC < day) 
@@ -66,6 +55,18 @@ public class JournalPage extends User{
                     s.nextLine();
                 }
             }
+            
+            if(userC == 0) 
+            {
+                System.out.println("Loading...");
+                break;
+            } 
+            else if (userC == -1) 
+            { 
+                weeklySummary();
+                continue;
+            }
+            
 
             JournalDataHandling dH = new JournalDataHandling();
             int currentUserId = User.userId;
