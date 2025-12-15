@@ -1,4 +1,0 @@
-Weather: No rain
-Mood: POSITIVE
-
-hihi

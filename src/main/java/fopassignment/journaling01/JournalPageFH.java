@@ -12,20 +12,21 @@ public class JournalPageFH extends User{
     public JournalPageFH() 
     { 
         File folder = new File(J_FOLDER);
-        if (!folder.exists()) {
+        if (!folder.exists()) 
+        {
             folder.mkdir(); 
         }
     }
    
-    public boolean JCExist(LocalDate date) 
+    public boolean JCExist(int currentUserId, LocalDate date) 
     {
-        File file = new File(J_FOLDER + date + ".txt");
+        File file = new File(J_FOLDER + date + "_" + currentUserId + ".txt");
         return file.exists();
     }
     
-    public void createJ(LocalDate userCDate, String jCon)
+    public void createJ(int currentUserId, LocalDate userCDate, String jCon)
     {
-        try (FileWriter createFile = new FileWriter(J_FOLDER + userCDate + ".txt")) 
+        try (FileWriter createFile = new FileWriter(J_FOLDER + userCDate + "_" + currentUserId + ".txt")) 
         {
             createFile.write(jCon); 
         } 
@@ -35,12 +36,13 @@ public class JournalPageFH extends User{
         }
     }
 
-     public String readJ(LocalDate date)
+     public String readJ(int currentUserId, LocalDate date)
     {
         
-        File file = new File(J_FOLDER + date + ".txt");
+        File file = new File(J_FOLDER + date + "_" + currentUserId + ".txt");
 
-        if (!file.exists()) {
+        if (!file.exists()) 
+        {
             return null; 
         }
 
@@ -48,11 +50,13 @@ public class JournalPageFH extends User{
 
         try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
             String line;
-            while ((line = reader.readLine()) != null) {
+            while ((line = reader.readLine()) != null) 
+            {
                 content.append(line).append("\n");
             }
         } 
-        catch (IOException exc) {
+        catch (IOException exc) 
+        {
             exc.printStackTrace();
             return null;
         }
