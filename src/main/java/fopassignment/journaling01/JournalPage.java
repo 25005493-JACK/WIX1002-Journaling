@@ -52,7 +52,6 @@ public class JournalPage extends User{
                 {
                     System.out.println("Invalid date. Please choose again.");
                     userC = s.nextInt();
-                    s.nextLine();
                 }
             }
 
