@@ -1,4 +1,0 @@
-Weather: Scattered thunderstorms
-Mood: NEGATIVE
-
-I am very sad
