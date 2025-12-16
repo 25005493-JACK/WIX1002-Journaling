@@ -4,3 +4,5 @@
 flyway.conf
 # Ignore db properties with credentials
 db.properties
+**/JournalContent/
+**/Data/
