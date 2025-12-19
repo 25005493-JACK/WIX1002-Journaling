@@ -39,7 +39,7 @@ public class JournalPage extends User{
             
             while(true) 
             {
-                if(userC >= 1 && userC < day) 
+                if(userC >= 0 && userC < day) 
                 {
                     break;
                 } 
