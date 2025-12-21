@@ -1,3 +1,4 @@
+//ChengYingChenStart
 package fopassignment.journaling01;
 
 import java.time.LocalDate;
@@ -71,5 +72,4 @@ public class JournalModel {
        
         
 }
-
-
+//ChengYingChenEnd

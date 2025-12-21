@@ -1,3 +1,4 @@
+//ChenngYingChenStart
 package fopassignment.journaling01;
 import java.time.LocalDate;
 import java.util.Scanner;
@@ -206,3 +207,4 @@ public class JournalPage extends User{
         return text.substring(start, end).trim();
     }
 }
+//ChengYingChenEnd
