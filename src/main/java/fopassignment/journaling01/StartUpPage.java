@@ -44,4 +44,3 @@ public class StartUpPage {
     }
 } 
 //TanWeiFengEnd
-//completed prompt user choose login or register and return to main *3/11/2025

@@ -13,4 +13,3 @@ public class pwHashing {
     }
 }
 //TanWeiFengEnd
-//Created method to encode and compare pw with user input

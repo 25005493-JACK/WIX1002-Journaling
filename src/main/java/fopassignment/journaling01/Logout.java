@@ -26,4 +26,3 @@ public class Logout {
     }
 }
 //TanWeiFengEnd
-//completed to prompt user choose logout or stay and return to main *3/11/2025
