@@ -1,4 +1,6 @@
 //TanWeiFengStart
+//Main flow of whole program
+//(Login/Register)->Journal Page->Logout
 package fopassignment.journaling01;
 
 public class Main{
@@ -10,7 +12,6 @@ public class Main{
         Logout lo = new Logout();
         
         int LR = SUP.Intro();
-        //System.out.println(LR); //to check LR can be returned or not
         
         boolean loginstatus = false; 
         
@@ -22,15 +23,14 @@ public class Main{
                 WP.Register();
                 loginstatus = false;
                 LR = 1;   
-            }//java if-else
-        }//java while loop
+            }
+        }
         
         
         do{
             JP.Journal();
             loginstatus =  lo.logout();
-            //System.out.println(loginstatus); //to check loginstatus can be returned or not
-        }while (loginstatus == true);//java do-while loop
+        }while (loginstatus == true);
         
     }
 }

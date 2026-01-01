@@ -1,4 +1,5 @@
 //LeeXinYiStart
+//Weather recording 
 package fopassignment.journaling01;
 
 public class WeatherRecording {

@@ -1,4 +1,5 @@
 //TanWeiFengStart
+//GUI
 package fopassignment.journaling01;
 
 import javafx.application.Application;
@@ -171,7 +172,7 @@ public class GUI extends Application {
         }
     }
     
-    public static void main(String[] args) {
+    public static void start(String[] args) {
         launch(args);
     }
 }
