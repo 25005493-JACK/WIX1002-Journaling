@@ -172,7 +172,7 @@ public class GUI extends Application {
         }
     }
     
-    public static void start(String[] args) {
+    public static void startGUI(String[] args) {
         launch(args);
     }
 }
