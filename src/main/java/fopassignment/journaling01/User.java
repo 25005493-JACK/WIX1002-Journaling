@@ -1,4 +1,5 @@
 //TanWeiFengStart
+//Consist of all user related variable and txt reader
 package fopassignment.journaling01;
 
 import java.io.FileReader;
@@ -14,7 +15,7 @@ public class User {
     static String email, pw, name;
     static String txtemail, txtpw, txtname;
     static String temail, tpw, tname;
-    static String content, date, weather=null, mood=null; 
+    static String date; 
     public static LocalDate createdD;
     
     public static List <String[]> txtfileReader(){

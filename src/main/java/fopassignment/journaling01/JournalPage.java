@@ -1,4 +1,6 @@
 //ChenngYingChenStart
+//Journal page flow
+//After login/register ->A list of dates for journal-> user choose date to add or edit or view journal or logout or weekly summary->if choose to logout,jump to logout,else if weekly summary, display summary, else let user manage journal
 package fopassignment.journaling01;
 import java.time.LocalDate;
 import java.util.Scanner;
@@ -33,14 +35,14 @@ public class JournalPage extends User{
 
             System.out.println("Select date to view journal or create a journal.\nEnter 0 if you want to log out.");
             System.out.println("Enter -1 for Weekly Summary"); 
-            System.out.print("> ");
+            System.out.print(">");
             
             int userC = s.nextInt();
             s.nextLine();
             
             while(true) 
             {
-                if(userC >= 1 && userC < day) 
+                if(userC >= 0 && userC < day) 
                 {
                     break;
                 } 
@@ -51,7 +53,7 @@ public class JournalPage extends User{
                 else 
                 {
                     System.out.println("Invalid date. Please choose again.");
-                    System.out.print("> ");
+                    System.out.print(">");
                     userC = s.nextInt();
                     s.nextLine();
                 }
@@ -86,7 +88,7 @@ public class JournalPage extends User{
                 System.out.println("Content: " + jM.getContent());
                 
                 System.out.println("\n\nWould you like to: \n" + "1. Edit This Journal \n" + "2. Back to Dates \n");
-                System.out.print("> ");
+                System.out.print(">");
                 
                 int menuC = s.nextInt();
                 s.nextLine();
@@ -117,7 +119,7 @@ public class JournalPage extends User{
                     {
                        System.out.println("Invalid entry. Please enter 1 or 2.");
                        System.out.println("\n\nWould you like to: \n" + "1. Edit This Journal \n" + "2. Back to Dates \n" );
-                       System.out.print("> ");
+                       System.out.print(">");
                        menuC = s.nextInt();
                        s.nextLine(); 
                     }

@@ -1,4 +1,5 @@
 //ChengYingChenStart
+//Journal content store and fetch methods
 package fopassignment.journaling01;
 
 

@@ -1,4 +1,5 @@
 //TanWeiFengStart
+//For SQL connection
 package fopassignment.journaling01;
 import java.io.InputStream;
 import java.sql.Connection;

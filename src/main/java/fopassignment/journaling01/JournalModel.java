@@ -1,4 +1,5 @@
 //ChengYingChenStart
+//Journal only instance variables and accessor 
 package fopassignment.journaling01;
 
 import java.time.LocalDate;

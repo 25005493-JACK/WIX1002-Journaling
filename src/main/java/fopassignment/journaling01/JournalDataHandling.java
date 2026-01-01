@@ -1,4 +1,5 @@
 //ChengYingChenStart
+//SQL database related(For journal data)
 package fopassignment.journaling01;
 
 import java.sql.Connection;

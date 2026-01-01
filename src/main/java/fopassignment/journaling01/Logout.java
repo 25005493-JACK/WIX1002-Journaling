@@ -1,4 +1,5 @@
 //TanWeiFengStart
+//Logout
 package fopassignment.journaling01;
 import java.util.Scanner;
 public class Logout {
