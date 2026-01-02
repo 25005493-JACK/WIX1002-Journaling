@@ -1,4 +1,5 @@
 //TanWeiFengStart
+//Consist of all user related variable and txt reader
 package fopassignment.journaling01;
 
 import java.io.FileReader;
@@ -14,14 +15,14 @@ public class User {
     static String email, pw, name;
     static String txtemail, txtpw, txtname;
     static String temail, tpw, tname;
-    static String content, date, weather=null, mood=null; 
+    static String date; 
     public static LocalDate createdD;
     
     public static List <String[]> txtfileReader(){
         String txtFOP =System.getProperty("user.dir")+"\\data\\UserData.txt";
         try(
-                FileWriter writer = new FileWriter(txtFOP, true);
-                //if first user don't have txt file,this will create first if first user didn't go to register first
+                FileWriter writer = new FileWriter(txtFOP, true);//append mode
+                //if first user of the whole system, don't have txt file, this will create first if first user didn't go to register first
             ){}
         catch (IOException e){
                 System.out.println("Error in file reader reaching file.");
@@ -50,4 +51,3 @@ public class User {
     }
 }
 //TanWeiFengEnd
-//done created method to save data into txt file * 3/11/2025

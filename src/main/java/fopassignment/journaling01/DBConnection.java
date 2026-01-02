@@ -1,4 +1,5 @@
 //TanWeiFengStart
+//For SQL connection
 package fopassignment.journaling01;
 import java.io.InputStream;
 import java.sql.Connection;
@@ -24,4 +25,3 @@ public class DBConnection {
     }
 }
 //TanWeiFengEnd
-//Done created class method to read url user and password from local device. *20/11/2025

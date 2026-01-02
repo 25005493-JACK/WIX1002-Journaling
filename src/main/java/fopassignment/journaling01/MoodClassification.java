@@ -1,4 +1,5 @@
 //LeeXinYiStart
+//Mood recording 
 package fopassignment.journaling01;
 
 import java.util.Map;

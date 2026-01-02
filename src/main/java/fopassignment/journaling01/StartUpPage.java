@@ -1,15 +1,13 @@
 //TanWeiFengStart
+//Start Up Page, display before user login or register
 package fopassignment.journaling01;
 import java.util.Scanner;
 
-public class StartUpPage {
+public class StartUpPage{
     public static int Intro(){
         Scanner sc = new Scanner(System.in);
-        int LR;//LR=LoginRegis
+        int LR;
         
-        //User friendly message
-        //String WelcomeText ="Welcome to XXX Journaling"; 
-        //System.out.println("\033[0;1m" + WelcomeText + "\033[0;0m"); //bold text is not shown in netbeans
         System.out.println("Welcome to XXX Journaling!");
         System.out.println("In conjunction of Sustainable Development Goals(SDGs) Goal 3: mental health and well-being,");
         System.out.println("XXX Journaling is here to help you to record your daily life track along with your emotions.");
@@ -35,7 +33,7 @@ public class StartUpPage {
                     System.out.print("\nEnter 1 to login and enter 2 to register as new user.\n>");
                     LR = sc.nextInt();
                 }
-            }//java switch
+            }
         }       
         
         
@@ -44,4 +42,3 @@ public class StartUpPage {
     }
 } 
 //TanWeiFengEnd
-//completed prompt user choose login or register and return to main *3/11/2025

@@ -1,4 +1,5 @@
 //TanWeiFengStart
+//Password Encoder Decoder
 package fopassignment.journaling01;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 public class pwHashing {
@@ -13,4 +14,3 @@ public class pwHashing {
     }
 }
 //TanWeiFengEnd
-//Created method to encode and compare pw with user input

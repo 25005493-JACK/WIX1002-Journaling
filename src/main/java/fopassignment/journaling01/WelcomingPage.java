@@ -1,4 +1,5 @@
 //TanWeiFengStart
+//Manage Login and Register
 package fopassignment.journaling01;
 import java.util.Scanner;
 import java.util.List;
@@ -93,7 +94,7 @@ public class WelcomingPage extends User {
     }           
     
     
-    public static void Register() { //no return, save everything to csv/txt and sql
+    public static void Register() { //save everything to csv/txt and sql
         Scanner sc = new Scanner(System.in);
         WelcomingPage WP = new WelcomingPage();
         
@@ -150,7 +151,7 @@ public class WelcomingPage extends User {
                             System.out.print("Invalid. ");
                         }
                     }
-                    WP.Register(); //Java Recursion
+                    WP.Register(); 
                 }
             } 
             catch (Exception e) {
@@ -159,7 +160,7 @@ public class WelcomingPage extends User {
         }
         else {
             System.out.println("\nYour password and confirm password does not match. Please try again.");
-            WP.Register(); //Java Recursion
+            WP.Register();
         }
     }
 }
