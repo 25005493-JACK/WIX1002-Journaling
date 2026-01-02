@@ -29,47 +29,49 @@ public class WeatherRecording {
         
         String forecast = rawForecast.toLowerCase();
         
-        switch (forecast) {
-            case "berjerebu":
-                return "Hazy";
+        if (forecast.equalsIgnoreCase("berjerebu")) {
+            return "Hazy";
             
-            case "tiada hujan":
-                return "No rain";
-                
-            case "hujan":
-                return "Rain";
-                
-            case "hujan di beberapa tempat":
-                return "Scattered rain";
-                
-            case "hujan di satu dua tempat":
-                return "Isolated rain";
-                
-            case "hujan di satu dua tempat di kawasan pantai":
-                return "Isolated rain over coastal areas";
-                
-            case "hujan di satu dua tempat di kawasan pedalaman":
-                return "Isolated rain over inland areas";
-                
-            case "ribut petir":
-                return "Thunderstorms";
-                
-            case "ribut petir di beberapa tempat":
-                return "Scattered thunderstorms";
-                
-            case "ribut petir di beberapa tempat di kawasan pedalaman":
-                return "Scattered thunderstorms over inland areas";
-                
-            case "ribut petir di satu dua tempat":
-                return "Isolated thunderstorms";
-                
-            case "ribut petir di satu dua tempat di kawasan pantai":
-                return "Isolated thunderstorms over coastal areas";
-                
-            case "ribut petir di satu dua tempat di kawasan pedalaman":
-                return "Isolated thunderstorms over inland areas";
+        } else if (forecast.equalsIgnoreCase("tiada hujan")) {
+            return "No rain";
             
-        }
+        } else if (forecast.equalsIgnoreCase("hujan")) {
+            return "Rain";
+            
+        }else if (forecast.equalsIgnoreCase("hujan di beberapa tempat")) {
+            return "Scattered rain";
+            
+        } else if (forecast.equalsIgnoreCase("hujan di satu dua tempat")) {
+            return "Isolated rain";
+            
+        } else if (forecast.equalsIgnoreCase("hujan di satu dua tempat di kawasan pantai")) {
+            return "Isolated rain over coastal areas";
+            
+        } else if (forecast.equalsIgnoreCase("hujan di satu dua tempat di kawasan pedalaman")) {
+            return "Isolated rain over inland areas";
+            
+        } else if (forecast.equalsIgnoreCase("ribut petir")) {
+            return "Thunderstorms";
+            
+        } else if (forecast.equalsIgnoreCase("ribut petir di beberapa tempat")) {
+            return "Scattered thunderstorms";
+            
+        } else if (forecast.equalsIgnoreCase("ribut petir di kebanyakan tempat")) {
+            return "Thunderstorms in most places";
+            
+        } else if (forecast.equalsIgnoreCase("ribut petir di beberapa tempat di kawasan pedalaman")) {
+            return "Scattered thunderstorms over inland areas";
+            
+        } else if (forecast.equalsIgnoreCase("ribut petir di satu dua tempat")) {
+            return "Isolated thunderstorms";
+            
+        } else if (forecast.equalsIgnoreCase("ribut petir di satu dua tempat di kawasan pantai")) {
+            return "Isolated thunderstorms over coastal areas";
+            
+        } else if (forecast.equalsIgnoreCase("ribut petir di satu dua tempat di kawasan pedalaman")) {
+            return "Isolated thunderstorms over inland areas";
+            
+        } 
         
         return rawForecast;
     }
