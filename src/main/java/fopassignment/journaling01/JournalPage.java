@@ -133,10 +133,25 @@ public class JournalPage extends User{
                 System.out.print("Enter your journal entry for " + userCDate +" :\n>");
                 String jCon = s.nextLine();
                 
+                
+                String weather;
+                LocalDate today = LocalDate.now();
+
+                if (userCDate.equals(today)) 
+                {
+                    
+                    WeatherRecording WR = new WeatherRecording();
+                    weather = WR.getTodayWeather(); 
+                } else 
+                {
+                    
+                    System.out.print("This is a past entry. Please enter the weather for " + userCDate + ": ");
+                    weather = s.nextLine();
+                }
                 //LeeXinYiStart
                 // get weather data
-                WeatherRecording WR = new WeatherRecording();
-                String weather = WR.getTodayWeather();                
+               // WeatherRecording WR = new WeatherRecording();
+                //String weather = WR.getTodayWeather();                
                 
                 // get mood/sentiment data
                 MoodClassification MC = new MoodClassification();
