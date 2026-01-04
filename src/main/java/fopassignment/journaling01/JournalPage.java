@@ -1,6 +1,7 @@
 //ChenngYingChenStart
 //Journal page flow
-//After login/register ->A list of dates for journal-> user choose date to add or edit or view journal or logout or weekly summary->if choose to logout,jump to logout,else if weekly summary, display summary, else let user manage journal
+/*After login/register ->A list of dates for journal-> user choose date to add or edit or view journal or logout or weekly summary
+->if choose to logout,jump to logout,else if weekly summary, display summary, else let user manage journal*/
 package fopassignment.journaling01;
 import java.time.LocalDate;
 import java.util.Scanner;
@@ -145,14 +146,10 @@ public class JournalPage extends User{
                 } else 
                 {
                     
-                    System.out.print("This is a past entry. Please enter the weather for " + userCDate + ": ");
+                    System.out.print("This is a past entry. Please enter the weather for " + userCDate + ": \n>");
                     weather = s.nextLine();
                 }
-                //LeeXinYiStart
-                // get weather data
-               // WeatherRecording WR = new WeatherRecording();
-                //String weather = WR.getTodayWeather();                
-                
+                //LeeXinYiStart                              
                 // get mood/sentiment data
                 MoodClassification MC = new MoodClassification();
                 String mood = MC.classifySentiment(jCon);                
